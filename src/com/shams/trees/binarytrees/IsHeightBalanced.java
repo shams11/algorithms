@@ -11,10 +11,10 @@ public class IsHeightBalanced {
     root.left.right = new UtilityHelper.Node(5);
     root.left.left.left = new UtilityHelper.Node(8);
     if (isHeightBalanced(root) != -1) {
-      System.out.println("Tree is balanced");
+      System.out.println("Tree is height balanced");
       return;
     }
-    System.out.println("Tree is not balanced");
+    System.out.println("Tree is not height balanced");
   }
 
   private static int isHeightBalanced(UtilityHelper.Node node) {
