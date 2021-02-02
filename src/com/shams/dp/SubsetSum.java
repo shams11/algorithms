@@ -6,15 +6,13 @@
 package com.shams.dp;
 
 public class SubsetSum {
-  static int count = 0;
 
   public static void main(String[] args) {
-    int[] arr = {3, 4, 5, 2};
-    int sum = 12;
+    int arr[] = {3, 4, 5, 2};
+    int sum = 9;
     int n = arr.length;
-    subSetSum(arr, sum, n);
-    System.out.println(count);
-    //System.out.println(subSetSumTopdown(arr, sum, n));
+    //System.out.println(subSetSum(arr, sum, n));
+    System.out.println(subSetSumTopdown(arr, sum, n));
   }
 
 
@@ -45,21 +43,18 @@ public class SubsetSum {
     return t[n][sum];
   }
 
-  static boolean isSubsetEqualToSum = false;
   private static boolean subSetSum(int[] arr, int sum, int n) {
-    if (sum == 0) {
-      return true;
-    }
     if (n == 0) {
       return false;
     }
+    if (sum == 0) {
+      return true;
+    }
     if (arr[n - 1] > sum) {
       return subSetSum(arr, sum, n - 1);
+    } else {
+      return subSetSum(arr, sum - arr[n - 1], n - 1) ||
+          subSetSum(arr, sum, n - 1);
     }
-    isSubsetEqualToSum =  subSetSum(arr, sum - arr[n - 1], n - 1) ||
-        subSetSum(arr, sum, n - 1);
-    if(isSubsetEqualToSum)
-      count++;
-    return isSubsetEqualToSum;
   }
 }

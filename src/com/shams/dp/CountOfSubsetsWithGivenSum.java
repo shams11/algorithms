@@ -6,24 +6,9 @@ package com.shams.dp;
 
 public class CountOfSubsetsWithGivenSum {
   public static void main(String[] args) {
-    int[] a = {3, 3, 3, 3 };
-    int sum = 6;
+    int[] a = {1, 1, 1, 1};
+    int sum = 1;
     System.out.println(countSubsetWithGiveSum(a, sum, a.length));
-    System.out.println(countSubsetWithGiveSumRecursive(a, sum, a.length));
-  }
-
-  private static int countSubsetWithGiveSumRecursive(int[] a, int sum, int n) {
-    if (sum == 0) {
-      return 1;
-    }
-    if (n == 0) {
-      return 0;
-    }
-    if (a[n - 1] > sum) {
-      return countSubsetWithGiveSumRecursive(a, sum, n - 1);
-    }
-    return countSubsetWithGiveSumRecursive(a, sum, n - 1)
-        + countSubsetWithGiveSumRecursive(a, sum - a[n - 1], n - 1);
   }
 
 
