@@ -1,5 +1,6 @@
 /**
  * https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
+ * https://www.youtube.com/watch?v=_gPcYovP7wc
  */
 
 package com.shams.dp;
@@ -7,8 +8,8 @@ package com.shams.dp;
 public class SubsetSum {
 
   public static void main(String[] args) {
-    int arr[] = {3, 34, 4, 12, 5, 2};
-    int sum = 119;
+    int arr[] = {3, 4, 5, 2};
+    int sum = 9;
     int n = arr.length;
     //System.out.println(subSetSum(arr, sum, n));
     System.out.println(subSetSumTopdown(arr, sum, n));
