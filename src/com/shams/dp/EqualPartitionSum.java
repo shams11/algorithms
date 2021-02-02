@@ -7,7 +7,7 @@ package com.shams.dp;
 
 public class EqualPartitionSum {
   public static void main(String[] args) {
-    int arr[] = {1, 3, 3, 2, 3, 2};
+    int[] arr = {1, 3, 3, 2, 3, 2};
     int n = arr.length;
     System.out.println(isEqualPartitionSubSetSumExists(arr, arr.length));
   }
