@@ -22,7 +22,8 @@ public class CountOfSubsetsWithGivenSum {
     if (a[n - 1] > sum) {
       return countSubsetWithGiveSumRecursive(a, sum, n - 1);
     }
-    return countSubsetWithGiveSumRecursive(a, sum, n - 1) + countSubsetWithGiveSumRecursive(a, sum - a[n - 1], n - 1);
+    return countSubsetWithGiveSumRecursive(a, sum, n - 1)
+        + countSubsetWithGiveSumRecursive(a, sum - a[n - 1], n - 1);
   }
 
 
