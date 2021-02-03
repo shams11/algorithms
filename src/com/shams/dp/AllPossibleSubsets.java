@@ -2,7 +2,7 @@
  * https://leetcode.com/problems/subsets/discuss/1031486/Javaor-Recursion-or-100
  */
 
-package com.shams.arrays;
+package com.shams.dp;
 
 import java.util.ArrayList;
 import java.util.List;
