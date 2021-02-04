@@ -5,14 +5,14 @@
 package com.shams.trie;
 
 public class LexicographicDictionarySearchInTrie {
-  private static final int MAX_INT = 26;
+  private static final int ALPHABET_COUNT = 26;
 
   public static class Trie {
     int index;
-    Trie[] children = new Trie[MAX_INT];
+    Trie[] children = new Trie[ALPHABET_COUNT];
 
     Trie() {
-      for (int i = 0; i < MAX_INT; ++i) {
+      for (int i = 0; i < ALPHABET_COUNT; ++i) {
         children[i] = null;
         index = -1;
       }
@@ -37,7 +37,7 @@ public class LexicographicDictionarySearchInTrie {
     if (node == null)
       return;
 
-    for(int i = 0; i < MAX_INT; ++i) {
+    for(int i = 0; i < ALPHABET_COUNT; ++i) {
       if(node.children[i] != null) {
         if(node.children[i].index != -1) {
           System.out.println(arr[node.children[i].index]);
