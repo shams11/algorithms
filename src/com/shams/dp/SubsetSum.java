@@ -9,7 +9,7 @@ public class SubsetSum {
 
   public static void main(String[] args) {
     int[] arr = {3, 4, 5, 2};
-    int sum = 90;
+    int sum = 9;
     int n = arr.length;
     System.out.println(subSetSum(arr, sum, n));
     System.out.println(subSetSumTopdown(arr, sum, n));

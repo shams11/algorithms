@@ -24,10 +24,11 @@ public class StockSpan {
 
   public static void main(String[] args) {
     int[] a = {100, 80, 60, 70, 60, 75, 85};
-    getStockSpans(a);
+    //int[] a = {6, 2, 5, 4, 5, 1, 6};
+    System.out.println(getConsecutiveSmallerOnLeftOfEachElement(a));
   }
 
-  private static void getStockSpans(int[] a) {
+  private static List<Integer> getConsecutiveSmallerOnLeftOfEachElement(int[] a) {
     Stack<Pair> s = new Stack<>();
     List<Integer> list = new ArrayList<>();
     List<Integer> result = new ArrayList<>();
@@ -49,9 +50,10 @@ public class StockSpan {
       }
       s.push(new Pair(a[i], i));
     }
+    System.out.println(list);
     for (int i = 0; i < list.size(); i++) {
       result.add(i - list.get(i));
     }
-    System.out.println(result);
+    return result;
   }
 }

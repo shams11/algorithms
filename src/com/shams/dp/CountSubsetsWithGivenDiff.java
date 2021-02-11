@@ -4,10 +4,10 @@ public class CountSubsetsWithGivenDiff {
   public static void main(String[] args) {
     int[] a = {1, 1, 2, 3};
     int diff = 1;
-    System.out.println(countOfSubSetsEithGivenDiff(a, diff, a.length));
+    System.out.println(countOfSubSetsWithGivenDiff(a, diff, a.length));
   }
 
-  private static int countOfSubSetsEithGivenDiff(int[] a, int diff, int n) {
+  private static int countOfSubSetsWithGivenDiff(int[] a, int diff, int n) {
     int totalSum = 0;
     for (int i = 0; i < n; ++i) {
       totalSum += a[i];
