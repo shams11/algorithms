@@ -7,7 +7,7 @@ package com.shams.recursion;
 
 public class KthGrrammer {
   public static void main(String[] args) {
-    System.out.println(kthGrammar(2, 2));
+    System.out.println(kthGrammar(4, 5));
   }
 
   public static int kthGrammar(int N, int K) {
@@ -17,11 +17,7 @@ public class KthGrrammer {
     if (K <= mid) {
       return kthGrammar(N - 1, K);
     } else {
-      int result = (kthGrammar(N - 1, (int) (K - mid)));
-      if (result == 0)
-        return 1;
-      else
-        return 0;
+      return (kthGrammar(N - 1, (int) (K - mid))) ^ 1; // xor or result
     }
   }
 }

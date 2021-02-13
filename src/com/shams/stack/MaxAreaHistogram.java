@@ -15,8 +15,8 @@ import java.util.Stack;
 
 public class MaxAreaHistogram {
   public static void main(String[] args) {
-    int[] a = {6, 2, 5, 4, 5, 1, 6};
-    //int[] a = {1, 1};
+    //int[] a = {6, 2, 5, 4, 5, 1, 6};
+    int[] a = {2, 1, 0, 1, 3};
     System.out.println(largestRectangleArea(a));
   }
 
@@ -38,6 +38,7 @@ public class MaxAreaHistogram {
 
     int max = Integer.MIN_VALUE;
     for (int i = 0; i < heights.length; i++) {
+      System.out.println(heights[i] + "*" + nextSmallestRight.get(i) + "-" + nextSmallestLeft.get(i) + "-1");
       max = Math.max(max, heights[i] * (nextSmallestRight.get(i) - nextSmallestLeft.get(i) - 1));
     }
     return max;
@@ -87,8 +88,8 @@ public class MaxAreaHistogram {
       }
       s.push(new Pair(a[i], i));
     }
-    System.out.println("nsr : " + list);
     Collections.reverse(list);
+    System.out.println("nsr : " + list);
     return list;
   }
 }
