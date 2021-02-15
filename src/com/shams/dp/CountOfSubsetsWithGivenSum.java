@@ -6,8 +6,11 @@ package com.shams.dp;
 
 public class CountOfSubsetsWithGivenSum {
   public static void main(String[] args) {
-    int[] a = {1, 1, 1, 1};
-    int sum = 1;
+//    int[] a = {1, 1, 1, 1};
+//    int sum = 1;
+
+    int[] a = {2, 4, 6, 10};
+    int sum = 16;
     System.out.println(countSubsetWithGiveSum(a, sum, a.length));
   }
 
