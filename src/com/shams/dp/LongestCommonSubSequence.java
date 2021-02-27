@@ -5,16 +5,14 @@
 
 package com.shams.dp;
 
-import java.util.Arrays;
-
 public class LongestCommonSubSequence {
 
   static int[][] t;
 
   public static void main(String[] args) {
 
-    String s1 = "abcdxyz";
-    String s2 = "xyzabcd";
+    String s1 = "voldemort";
+    String s2 = "dumbledore";
 
     char[] X = s1.toCharArray();
     char[] Y = s2.toCharArray();
@@ -46,17 +44,9 @@ public class LongestCommonSubSequence {
     }
   }
 
-  /*
-      if (t[i - 1] == t[j - 1]) {
-  *      curMaxLen = 1 + t[n - 1][m - 1];
-      } else {
-
-      }
-  * */
-
   private static int lcsTopDown(char[] x, char[] y, int n, int m) {
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < m; j++) {
+    for (int i = 0; i < n + 1; i++) {
+      for (int j = 0; j < m + 1; j++) {
         if (i == 0 || j == 0) {
           t[i][j] = 0;
         }
@@ -64,10 +54,10 @@ public class LongestCommonSubSequence {
     }
     for (int i = 1; i < n + 1; i++) {
       for (int j = 1; j < m + 1; j++) {
-        if (t[i - 1] == t[j - 1]) {
-          t[n][m] = 1 + t[n - 1][m - 1];
+        if (x[i - 1] == y[j - 1]) {
+          t[i][j] = 1 + t[i - 1][j - 1];
         } else {
-          t[n][m] = Math.max(t[n][m - 1], t[n - 1][m]);
+          t[i][j] = Math.max(t[i][j - 1], t[i - 1][j]);
         }
       }
     }
