@@ -5,8 +5,8 @@ public class PrintingLCS {
   static int[][] t;
 
   public static void main(String[] args) {
-    String s1 = "AGGTAB";
-    String s2 = "GXTXAYB";
+    String s1 = "acbcf";
+    String s2 = "abcdaf";
 
     int m = s1.length();
     int n = s2.length();
