@@ -10,8 +10,8 @@ public class ShortestCommonSupersequence {
   static int[][] t;
 
   public static void main(String[] args) {
-    String s1 = "AGGTAB";
-    String s2 = "GXTXAYB";
+    String s1 = "voldemort";
+    String s2 = "dumbledore";
 
     int m = s1.length();
     int n = s2.length();

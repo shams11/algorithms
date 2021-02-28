@@ -1,6 +1,10 @@
+/**
+ * https://www.youtube.com/watch?v=x5hQvnUcjiM&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=23&ab_channel=AdityaVerma
+ * https://www.geeksforgeeks.org/printing-longest-common-subsequence/
+ * */
 package com.shams.dp;
 
-public class PrintingLCS {
+public class PrintLCS {
 
   static int[][] t;
 
