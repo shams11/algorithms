@@ -34,7 +34,7 @@ public class StockSpan {
     List<Integer> result = new ArrayList<>();
     for (int i = 0; i < a.length; i++) {
       if (s.isEmpty()) {
-        s.push(new Pair(a[i], i));
+        //s.push(new Pair(a[i], i));
         list.add(-1);
       } else if (a[i] <= s.peek().val) {
         list.add(s.peek().index);
@@ -50,7 +50,7 @@ public class StockSpan {
       }
       s.push(new Pair(a[i], i));
     }
-    System.out.println(list);
+    System.out.println( "nsl : " + list);
     for (int i = 0; i < list.size(); i++) {
       result.add(i - list.get(i));
     }

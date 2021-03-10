@@ -75,12 +75,17 @@ public class StackMin {
 
   public static void main(String[] args) {
     CustomStack s = new CustomStack();
-    s.push(5);
-    s.push(7);
+    s.push(18);
+    s.getMin();
+    s.push(19);
+    s.getMin();
+    s.push(29);
+    s.getMin();
+    s.push(15);
     s.getMin();
     s.pop();
     s.getMin();
-    s.pop();
-    s.peek();
+//    s.pop();
+//    s.peek();
   }
 }

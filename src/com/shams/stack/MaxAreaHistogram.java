@@ -15,8 +15,8 @@ import java.util.Stack;
 
 public class MaxAreaHistogram {
   public static void main(String[] args) {
-    //int[] a = {6, 2, 5, 4, 5, 1, 6};
-    int[] a = {2, 1, 0, 1, 3};
+    int[] a = {6, 2, 5, 4, 5, 1, 6};
+    //int[] a = {2, 1, 0, 1, 3};
     System.out.println(largestRectangleArea(a));
   }
 

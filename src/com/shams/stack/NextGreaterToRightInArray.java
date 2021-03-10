@@ -20,19 +20,20 @@ public class NextGreaterToRightInArray {
     Stack<Integer> s = new Stack<>();
     List<Integer> list = new java.util.ArrayList<>();
     for (int i = a.length - 1; i >= 0; --i) {
-      if(s.isEmpty()) {
+      if (s.isEmpty()) {
         list.add(-1);
-      } else if(!s.isEmpty() && a[i] < s.peek()) {
+      } else if (a[i] < s.peek()) {
         list.add(s.peek());
-      } else if(!s.isEmpty() && a[i] > s.peek()) {
-        if(s.isEmpty()) {
+      } else if (a[i] > s.peek()) {
+        while (!s.isEmpty() && a[i] > s.peek()) {
+          s.pop();
+        }
+        if (s.isEmpty()) {
           list.add(-1);
         } else {
-          while(!s.isEmpty() && a[i] > s.peek()) {
-            s.pop();
-          }
           list.add(s.peek());
         }
+
       }
       s.push(a[i]);
     }
