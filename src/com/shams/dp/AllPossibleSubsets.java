@@ -22,14 +22,14 @@ public class AllPossibleSubsets {
 
   static void createSubsets(
       List<List<Integer>> list,
-      List<Integer> resultList,
+      List<Integer> tempList,
       int[] nums, int start) {
 
-    list.add(new ArrayList<>(resultList));
+    list.add(new ArrayList<>(tempList));
     for (int i = start; i < nums.length; i++) {
-      resultList.add(nums[i]);
-      createSubsets(list, resultList, nums, i + 1);
-      resultList.remove(resultList.size() - 1);
+      tempList.add(nums[i]);
+      createSubsets(list, tempList, nums, i + 1);
+      tempList.remove(tempList.size() - 1);
     }
   }
 }
