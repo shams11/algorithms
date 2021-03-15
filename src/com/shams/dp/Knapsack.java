@@ -20,10 +20,10 @@ public class Knapsack {
       for (int j = 0; j < W + 1; j++) {
         if (i == 0 || j == 0) {
           t[i][j] = 0;
-        } else if (wt[i - 1] > W) {
+        } else if (wt[i - 1] > j) {
           t[i][j] = t[i - 1][j];
         } else {
-          t[i][j] = Math.max(t[i - 1][j], val[i - 1] + t[i - 1][W - wt[i - 1]]);
+          t[i][j] = Math.max(t[i - 1][j], val[i - 1] + t[i - 1][j - wt[i - 1]]);
         }
       }
     }
