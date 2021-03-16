@@ -24,8 +24,8 @@ public class LongestCommonSubSequence {
         t[i][j] = -1;
       }
     }
-    System.out.println("Length of LCS is in Memoization " + " " + lcsMemoization(X, Y, n, m));
-    System.out.println("Length of LCS is in Top down " + " " + lcsTopDown(X, Y, n, m));
+    //System.out.println("Length of LCS is in Memoization " + " " + lcsMemoization(X, Y, n, m));
+    System.out.println("Length of LCS is in Top down " + " " + lcsTopDown(s1, s2, n, m));
   }
 
   private static int lcsMemoization(char[] x, char[] y, int n, int m) {
@@ -44,7 +44,7 @@ public class LongestCommonSubSequence {
     }
   }
 
-  private static int lcsTopDown(char[] x, char[] y, int n, int m) {
+  private static int lcsTopDown(String x, String y, int n, int m) {
     for (int i = 0; i < n + 1; i++) {
       for (int j = 0; j < m + 1; j++) {
         if (i == 0 || j == 0) {
@@ -54,7 +54,7 @@ public class LongestCommonSubSequence {
     }
     for (int i = 1; i < n + 1; i++) {
       for (int j = 1; j < m + 1; j++) {
-        if (x[i - 1] == y[j - 1]) {
+        if (x.charAt(i - 1) == y.charAt(j - 1)) {
           t[i][j] = 1 + t[i - 1][j - 1];
         } else {
           t[i][j] = Math.max(t[i][j - 1], t[i - 1][j]);

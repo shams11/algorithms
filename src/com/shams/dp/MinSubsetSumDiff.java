@@ -7,7 +7,7 @@ package com.shams.dp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubsetSumDiffMinDiff {
+public class MinSubsetSumDiff {
   public static void main(String[] args) {
     int[] a = {1, 2, 7};
     int n = a.length;
