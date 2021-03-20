@@ -9,8 +9,8 @@ public class PrintSCS {
   static int[][] t;
 
   public static void main(String[] args) {
-    String s1 = "AGGTAB";
-    String s2 = "GXTXAYB";
+    String s1 = "ACBCF";
+    String s2 = "ABCDAF";
 
 
     int m = s1.length();

@@ -21,8 +21,8 @@ class MaxGoldPath {
   static int[][] DIRECTIONS = {
       {0, 1}, // right
       {1, 0}, // down
-      {-1, 0}, // top
-      {0, -1}  // left
+      {0, -1}, // left
+      {-1, 0}  // top
   };
 //  static int[][] mat = {
 //      {1, 0, 2, 0},
