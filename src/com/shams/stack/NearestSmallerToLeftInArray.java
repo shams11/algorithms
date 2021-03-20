@@ -28,7 +28,7 @@ public class NearestSmallerToLeftInArray {
       } else if (a[i] > s.peek()) {
         list.add(s.peek());
       } else if (a[i] < s.peek()) {
-        while (s.isEmpty() || a[i] < s.peek()) {
+        while (!s.isEmpty() && a[i] < s.peek()) {
           s.pop();
         }
         if (s.isEmpty()) {
