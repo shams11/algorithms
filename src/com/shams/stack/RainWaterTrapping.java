@@ -17,15 +17,43 @@ public class RainWaterTrapping {
   public static void main(String[] args) {
     int[] heights = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
     int traps = trap(heights);
-    System.out.println(traps);
+    System.out.println( "trap 1 : " + traps);
+
+    System.out.println("trap 2 : " + trap2(heights));
+  }
+
+  private static int trap2(int[] a) {
+    int n = a.length;
+    int[] maxOnLeft = new int[n];
+    maxOnLeft[0] = a[0];
+    for (int i = 1; i < n; i++) {
+      // calculate max value on left for each element
+      maxOnLeft[i] = Math.max(maxOnLeft[i - 1], a[i]);
+    }
+    int[] maxOnRight = new int[n];
+    maxOnRight[n - 1] = a[n - 1];
+    for (int i = n - 2; i >= 0; i--) {
+      // calculate max value on Right for each element
+      maxOnRight[i] = Math.max(maxOnRight[i + 1], a[i]);
+    }
+    int[] water = new int[n];
+    for (int i = 0; i < n; i++) {
+      water[i] = Math.min(maxOnLeft[i], maxOnRight[i]) - a[i];
+    }
+    int sum = 0;
+    for(int i = 0; i < n; i++) {
+      sum += water[i];
+    }
+    return sum;
   }
 
   private static int trap(int[] a) {
-    List<Integer> nll = getNextlargestLeft(a);
-    List<Integer> nlr = getNextlargestRight(a);
+    List<Integer> largestOnLeft = getLargestOnLeft(a);
+    List<Integer> largestOnRight = getLargestOnRight(a);
     int traps = 0;
     for (int i = 0; i < a.length; i++) {
-      int result = Math.min(nll.get(i), nlr.get(i)) - a[i];
+      // Get min of largest on left and right and minus current building height
+      int result = Math.min(largestOnLeft.get(i), largestOnRight.get(i)) - a[i];
       if (result > 0) {
         traps += result;
       }
@@ -33,7 +61,7 @@ public class RainWaterTrapping {
     return traps;
   }
 
-  private static List<Integer> getNextlargestRight(int[] a) {
+  private static List<Integer> getLargestOnRight(int[] a) {
     Stack<Integer> s = new Stack<>();
     List<Integer> list = new ArrayList<>();
     for (int i = a.length - 1; i >= 0; i--) {
@@ -51,11 +79,11 @@ public class RainWaterTrapping {
       }
     }
     Collections.reverse(list);
-    System.out.println("nlr : " + list);
+    System.out.println("ngr : " + list);
     return list;
   }
 
-  private static List<Integer> getNextlargestLeft(int[] a) {
+  private static List<Integer> getLargestOnLeft(int[] a) {
     Stack<Integer> s = new Stack<>();
     List<Integer> list = new ArrayList<>();
     for (int i = 0; i < a.length; i++) {
@@ -72,7 +100,7 @@ public class RainWaterTrapping {
         s.push(a[i]);
       }
     }
-    System.out.println("nll : " + list);
+    System.out.println("ngl : " + list);
     return list;
   }
 }

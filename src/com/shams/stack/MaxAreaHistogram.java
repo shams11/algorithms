@@ -1,6 +1,4 @@
 /***
- *
- * https://www.youtube.com/watch?v=J2X70jj_I1o&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=7
  * https://www.youtube.com/watch?v=J2X70jj_I1o&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=7
  * https://leetcode.com/problems/largest-rectangle-in-histogram/
  * */
@@ -15,6 +13,7 @@ import java.util.Stack;
 
 public class MaxAreaHistogram {
   public static void main(String[] args) {
+   //  int[] a = {2, 1, 5, 6, 2, 3};
     int[] a = {6, 2, 5, 4, 5, 1, 6};
     //int[] a = {2, 1, 0, 1, 3};
     System.out.println(largestRectangleArea(a));
