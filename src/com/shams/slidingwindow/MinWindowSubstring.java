@@ -2,6 +2,7 @@
  * https://www.youtube.com/watch?v=U1q16AFcjKs
  * https://leetcode.com/problems/minimum-window-substring/
  * */
+
 package com.shams.slidingwindow;
 
 import java.util.HashMap;
@@ -11,8 +12,8 @@ public class MinWindowSubstring {
   public static void main(String[] args) {
 //    Input: s = "ADOBECODEBANC", t = "ABC"
 //    Output: "BANC"
-    String s = "ADOBECODEBANC";
-    String t = "ABC";
+    String s = "a";
+    String t = "a";
     System.out.println(minWindow(s, t));
   }
 
@@ -27,13 +28,13 @@ public class MinWindowSubstring {
 
     int i = 0;
     int j = 0;
-    int min = s.length();
+    int min = Integer.MAX_VALUE;
     boolean found = false;
     int count = map.size();
     int left = 0, right = s.length() - 1;
 
     while (j < s.length()) {
-      Character endChar = s.charAt(j++);
+      Character endChar = s.charAt(j);
       if (map.containsKey(endChar)) {
         map.put(endChar, map.get(endChar) - 1);
         if (map.get(endChar) == 0) {
@@ -42,25 +43,27 @@ public class MinWindowSubstring {
       }
 
       if (count > 0)
-        continue;
-
-      while (count == 0) {
-        Character startChar = s.charAt(i++);
-        if (map.containsKey(startChar)) {
-          map.put(startChar, map.get(startChar) + 1);
-          if (map.get(startChar) > 0) {
-            count++;
+        j++;
+      else if (count == 0) {
+        while (count == 0) {
+          Character chartAti = s.charAt(i);
+          if (map.containsKey(chartAti)) {
+            map.put(chartAti, map.getOrDefault(chartAti, 0) + 1);
+            if (map.get(chartAti) > 0) {
+              count++;
+            }
           }
+          i++;
+        }
+        j++;
+        if (j - i + 1 < min) {
+          min = j - i + 1;
+          left = i;
+          right = j;
+          found = true;
         }
       }
-
-      if (j - i < min) {
-        left = i;
-        right = j;
-        min = j - i;
-        found = true;
-      }
     }
-    return !found ? "" : s.substring(left - 1, right);
+    return !found ? "" : s.substring(left-1, right);
   }
 }
