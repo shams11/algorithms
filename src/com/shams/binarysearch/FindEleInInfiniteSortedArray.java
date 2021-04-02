@@ -7,7 +7,7 @@ package com.shams.binarysearch;
 
 public class FindEleInInfiniteSortedArray {
   public static void main(String[] args) {
-    int[] a = new int[]{3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170};
+    int[] a = {3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170};
     int x = 10;
     // Output : 4;
     System.out.println(findPos(a, 10));
