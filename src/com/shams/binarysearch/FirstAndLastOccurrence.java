@@ -15,7 +15,6 @@ public class FirstAndLastOccurrence {
     int target = 10;
     // Output : [2,4]
 
-
     int[] res = searchRange(a, target);
     System.out.println("[" + res[0] + "," + res[1] + "]");
   }
