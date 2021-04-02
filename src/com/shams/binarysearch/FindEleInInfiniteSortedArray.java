@@ -10,7 +10,7 @@ public class FindEleInInfiniteSortedArray {
     int[] a = {3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170};
     int x = 10;
     // Output : 4;
-    System.out.println(findPos(a, 10));
+    System.out.println(findPos(a, x));
   }
 
   private static int findPos(int[] a, int x) {
