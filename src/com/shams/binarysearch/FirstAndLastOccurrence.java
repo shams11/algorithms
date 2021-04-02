@@ -8,8 +8,14 @@ package com.shams.binarysearch;
 public class FirstAndLastOccurrence {
 
   public static void main(String[] args) {
-    int[] a = {2, 2};
-    int target = 3;
+//    int[] a = {2, 2};
+//    int target = 3;
+//    // Output : [-1,-1]
+    int[] a = {2, 4, 10, 10, 10, 18, 20};
+    int target = 10;
+    // Output : [2,4]
+
+
     int[] res = searchRange(a, target);
     System.out.println("[" + res[0] + "," + res[1] + "]");
   }
