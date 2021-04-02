@@ -13,7 +13,7 @@ public class RotationCountInSortedArray {
     // Output : 0
 
     int[] a = {4, 5, 6, 7, 0, 1, 2};
-    // Output : 2
+    // Output : 4
     System.out.println(rotationCount(a, 0, a.length - 1, a.length));
   }
 
