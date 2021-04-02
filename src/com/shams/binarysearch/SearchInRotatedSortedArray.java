@@ -3,7 +3,7 @@
  * https://www.youtube.com/watch?v=Id-DdcWb5AU&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=8&ab_channel=AdityaVerma
  * */
 
-package com.shams.strings;
+package com.shams.binarysearch;
 
 public class SearchInRotatedSortedArray {
   public static void main(String[] args) {

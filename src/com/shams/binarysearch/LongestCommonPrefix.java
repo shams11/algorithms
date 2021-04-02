@@ -1,7 +1,7 @@
 /**
  * https://leetcode.com/problems/longest-common-prefix/solution/
  * */
-package com.shams.strings;
+package com.shams.binarysearch;
 
 public class LongestCommonPrefix {
 

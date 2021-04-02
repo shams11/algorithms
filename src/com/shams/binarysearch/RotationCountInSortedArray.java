@@ -2,7 +2,7 @@
  * https://www.geeksforgeeks.org/find-rotation-count-rotated-sorted-array/
  */
 
-package com.shams.strings;
+package com.shams.binarysearch;
 
 public class RotationCountInSortedArray {
   public static void main(String[] args) {
