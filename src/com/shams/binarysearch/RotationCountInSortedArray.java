@@ -1,5 +1,7 @@
 /**
  * https://www.geeksforgeeks.org/find-rotation-count-rotated-sorted-array/
+ * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+ * This problem is same as finding min element in rotated sorted array with unique elements
  */
 
 package com.shams.binarysearch;
