@@ -30,8 +30,10 @@ public class PeekElement {
           return mid;
         }
         if (a[mid - 1] > a[mid]) {
+          // a[mid +1] cannot be peak element as, it will be less than a[mid]
           end = mid - 1;
         } else {
+          // a[mid -1] cannot be peak element as, it will be less than a[mid]
           start = mid + 1;
         }
       } else if (mid == 0) {

@@ -8,9 +8,9 @@ package com.shams.binarysearch;
 public class FloorOfEleInSortedArray {
 
   public static void main(String[] args) {
-    // int[] a = {1, 2, 8, 10, 10, 12, 19};
+    // int[] a = {1, 2, 3, 4, 8, 10, 10, 12, 19};
     // int x = 5;
-    // Output : 2 is the largest element in arr[] smaller than 5
+    // Output : 3 is the largest element in arr[] smaller than 5
 
     int[] a = {1, 2, 8, 10, 10, 12, 19};
     int x = 20;
