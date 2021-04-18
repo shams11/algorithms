@@ -8,6 +8,7 @@
 package com.shams.stack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
@@ -15,9 +16,10 @@ import java.util.Stack;
 public class RainWaterTrapping {
 
   public static void main(String[] args) {
-    int[] heights = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    //int[] heights = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    int[] heights = {4, 2, 0, 3, 2, 5};
     int traps = trap(heights);
-    System.out.println( "trap 1 : " + traps);
+   // System.out.println( "trap 1 : " + traps);
 
     System.out.println("trap 2 : " + trap2(heights));
   }
@@ -30,6 +32,7 @@ public class RainWaterTrapping {
       // calculate max value on left for each element
       maxOnLeft[i] = Math.max(maxOnLeft[i - 1], a[i]);
     }
+    Arrays.stream(maxOnLeft).forEach(System.out::print);
     int[] maxOnRight = new int[n];
     maxOnRight[n - 1] = a[n - 1];
     for (int i = n - 2; i >= 0; i--) {
