@@ -33,7 +33,7 @@ public class DFS {
     visited[s] = true;
     List<Integer> neighbours = getNeighbours(s, m);
     for (Integer u : neighbours) {
-      if (!visited[u] && m[s][u] == 1) {
+      if (!visited[u]) {
         stack.push(u);
         dfs(u, m);
       }
