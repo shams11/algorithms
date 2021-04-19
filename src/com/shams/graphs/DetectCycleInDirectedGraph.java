@@ -3,7 +3,7 @@ package com.shams.graphs;
 import static com.shams.commons.UtilityHelper.getNeighbours;
 import java.util.List;
 
-public class DetectCycle {
+public class DetectCycleInDirectedGraph {
 
   public static void main(String[] args) {
     int[][] a = {
