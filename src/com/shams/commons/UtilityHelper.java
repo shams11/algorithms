@@ -1,5 +1,8 @@
 package com.shams.commons;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UtilityHelper {
 
   public static class Node {
@@ -51,5 +54,15 @@ public class UtilityHelper {
         insertNodeInBST(root.right, value);
       }
     }
+  }
+
+  public static List<Integer> getNeighbours(Integer s, int[][] m) {
+    List<Integer> list = new ArrayList<>();
+    for (int i = 0; i < m[0].length; i++) {
+      if (m[s][i] == 1) {
+        list.add(i);
+      }
+    }
+    return list;
   }
 }

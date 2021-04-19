@@ -1,6 +1,6 @@
 package com.shams.graphs;
 
-import java.util.ArrayList;
+import static com.shams.commons.UtilityHelper.getNeighbours;
 import java.util.List;
 
 public class DetectCycle {
@@ -9,7 +9,7 @@ public class DetectCycle {
     int[][] a = {
         {0, 1, 0, 0, 0},
         {0, 0, 0, 0, 0},
-        {0, 1, 0, 0, 0},
+        {0, 1, 0, 1, 0},
         {0, 0, 0, 0, 1},
         {1, 0, 1, 0, 0},
     };
@@ -44,15 +44,5 @@ public class DetectCycle {
     }
     visited[v] = false;
     return false;
-  }
-
-  private static List<Integer> getNeighbours(Integer v, int[][] a) {
-    List<Integer> list = new ArrayList<>();
-    for (int i = 0; i < a.length; i++) {
-      if (a[v][i] == 1) {
-        list.add(i);
-      }
-    }
-    return list;
   }
 }

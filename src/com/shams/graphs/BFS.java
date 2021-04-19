@@ -1,5 +1,7 @@
 package com.shams.graphs;
 
+import static com.shams.commons.UtilityHelper.getNeighbours;
+import com.shams.commons.UtilityHelper;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,15 +39,5 @@ public class BFS {
         }
       }
     }
-  }
-
-  private static List<Integer> getNeighbours(int s, int[][] m) {
-    List<Integer> list = new ArrayList<>();
-    for (int i = s; i < m[0].length; i++) {
-      if (m[s][i] == 1) {
-        list.add(i);
-      }
-    }
-    return list;
   }
 }
