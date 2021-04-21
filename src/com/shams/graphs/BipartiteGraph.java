@@ -40,7 +40,7 @@ public class BipartiteGraph {
   }
 
   public static boolean possibleBiPartition(int N, int[][] dislikes) {
-    if(dislikes == null || dislikes.length == 0) return false;
+    if(N == 1) return true;
 
     List[] map = new List[N + 1];
     for(int i = 0; i <= N; i++) {
