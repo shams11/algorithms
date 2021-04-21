@@ -71,8 +71,8 @@ public class BipartiteGraph {
     return true;
   }
 
-  // There are 2 colours {0, 1}. if the colour of a given vertex is 1,
-  // then 1 -0 will diff colour to its neighbour
+  // There are 2 colours {0, 1}. if the colour of a cur vertex is 1,
+  // then 1 - colour[curVertex] will diff colour to its neighbour
   static boolean isBiPartite(int s, int N, List[] map, int[] colours) {
     colours[s] = 1;
     q.add(s);
