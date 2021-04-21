@@ -1,3 +1,7 @@
+/***
+ * https://leetcode.com/problems/possible-bipartition/submissions/
+ * https://www.youtube.com/watch?v=0ACfAqs8mm0&list=PLEJXowNB4kPzByLnnFYNSCoqtFz0VKLk5&index=8&ab_channel=TECHDOSE
+ * */
 package com.shams.graphs;
 
 import java.util.ArrayList;
@@ -67,6 +71,8 @@ public class BipartiteGraph {
     return true;
   }
 
+  // There are 2 colours {0, 1}. if the colour of a given vertex is 1,
+  // then 1 -0 will diff colour to its neighbour
   static boolean isBiPartite(int s, int N, List[] map, int[] colours) {
     colours[s] = 1;
     q.add(s);
@@ -78,7 +84,7 @@ public class BipartiteGraph {
           return false;
         }
         if(colours[u] == -1) {
-          colours[u] = 1 - colours[s];
+          colours[u] = 1 - colours[s]; // give diff colour to neighbour
           q.add(u);
         }
 
