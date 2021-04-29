@@ -49,4 +49,43 @@ public class CourseSchedule {
     colours[s] = 1;
     return false;
   }
+  /***
+   * public boolean canFinish(int numCourses, int[][] prerequisites) {
+   *         if(numCourses == 1) return true;
+   *
+   *         Map<Integer, Integer> coloursMap = new HashMap<>();
+   *         Map<Integer, List<Integer>> map = new HashMap<>();
+   *         for(int[] pr : prerequisites) {
+   *             if(!map.containsKey(pr[0])) {
+   *                 map.put(pr[0], new ArrayList<>());
+   *             }
+   *             map.get(pr[0]).add(pr[1]);
+   *             coloursMap.put(pr[0], 0);
+   *         }
+   *
+   *         for(Map.Entry<Integer, List<Integer>> e : map.entrySet()) {
+   *             if(coloursMap.get(e.getKey()) == 0) {
+   *                 if(isCycle(e.getKey(), map, coloursMap)) {
+   *                     return false;
+   *                 }
+   *             }
+   *         }
+   *         return true;
+   *     }
+   *
+   *     private boolean isCycle(int key, Map<Integer, List<Integer>> map, Map<Integer, Integer> colours) {
+   *         if(colours.getOrDefault(key, -1) == 2) return true;
+   *         colours.put(key, 2);
+   *         List<Integer> neighbours = map.getOrDefault(key, new ArrayList<>());
+   *         for(int n : neighbours) {
+   *             if(colours.getOrDefault(n, -1) != 1) {
+   *                 if(isCycle(n, map, colours)) {
+   *                     return true;
+   *                 }
+   *             }
+   *         }
+   *         colours.put(key, 1);
+   *         return false;
+   *     }
+   * */
 }
