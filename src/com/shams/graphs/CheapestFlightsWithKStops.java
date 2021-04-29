@@ -28,7 +28,8 @@ public class CheapestFlightsWithKStops {
         {1, 2, 100},
         {0, 2, 500}
     };
-  // Output: 500
+    // Output: 500
+
     System.out.println(findCheapestPrice(n, flights, src, dst, k));
   }
 
