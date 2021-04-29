@@ -57,13 +57,13 @@ public class CheapestFlightsWithKStops {
     }
 
     PriorityQueue<Node> pq = new PriorityQueue<>((n1, n2) -> n1.cost - n2.cost);
-    pq.add(new Node(src, 0, -1));
+    pq.add(new Node(src, 0, 0));
     while (!pq.isEmpty()) {
       Node cur = pq.poll();
       if (cur.city == dst) return cur.cost;
       List<int[]> neighbours = graph.getOrDefault(cur.city, new ArrayList<>());
       for (int[] neigh : neighbours) {
-        if (cur.stop < K) {
+        if (cur.stop <= K) {
           pq.add(new Node(neigh[0], cur.cost + neigh[1], cur.stop + 1));
         }
       }
