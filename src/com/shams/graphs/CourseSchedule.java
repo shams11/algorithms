@@ -6,40 +6,45 @@
 package com.shams.graphs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CourseSchedule {
   public static void main(String[] args) {
     int[][] a = {
-        {1, 0}
+        {0, 2},
+        {2, 3},
+        {1, 3},
+        {0, 1}
     };
-    System.out.println(canFinish(2, a));
+    System.out.println(canFinish(4, a));
   }
 
   private static boolean canFinish(int numOfCourses, int[][] prerequisites) {
-    List[] map = new List[numOfCourses+1];
-    for(int i = 0; i <= numOfCourses; i++) {
-      map[i] = new ArrayList<>();
-    }
+    Map<Integer, List<Integer>> map = new HashMap<>();
     for(int[] pr : prerequisites) {
-      map[pr[0]].add(pr[1]);
+      if(!map.containsKey(pr[0])) {
+        map.put(pr[0], new ArrayList<>());
+      }
+      map.get(pr[0]).add(pr[1]);
     }
     int[] colours = new int[numOfCourses+1];
     for(int i = 0; i <= numOfCourses; i++) {
       if(colours[i] == 0) {
         if(isCycle(i, map, colours)) {
-          return false;
+          return true;
         }
       }
     }
-    return true;
+    return false;
   }
 
-  private static boolean isCycle(int s, List[] map, int[] colours) {
+  private static boolean isCycle(int s, Map<Integer, List<Integer>> map, int[] colours) {
     if(colours[s] == 2) return true;
     colours[s] = 2;
-    List<Integer> neighbours = map[s];
-    for(Integer n : neighbours) {
+
+    for(Integer n : map.getOrDefault(s, new ArrayList<>())) {
       if(colours[n] != 1) {
         if(isCycle(n, map, colours)) {
           return true;
@@ -49,7 +54,8 @@ public class CourseSchedule {
     colours[s] = 1;
     return false;
   }
-  /***
+
+  /**
    * public boolean canFinish(int numCourses, int[][] prerequisites) {
    *         if(numCourses == 1) return true;
    *

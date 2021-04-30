@@ -46,26 +46,6 @@ public class CourseSchedule2 {
     return a;
   }
 
-
-  private static void createCourseOrder(int numCourses, int[][] prerequisites) {
-    boolean[] visited = new boolean[numCourses];
-    for (int i = 0; i < numCourses; i++) {
-      if (!visited[i]) {
-        dfs(i, visited);
-      }
-    }
-  }
-
-  private static void dfs(int s, boolean[] visited) {
-    visited[s] = true;
-    for (Integer n : map.getOrDefault(s, new ArrayList<>())) {
-      if (!visited[n]) {
-        dfs(n, visited);
-      }
-    }
-    result.add(s);
-  }
-
   private static void buildGraph(int[][] prerequisites) {
     for (int[] pr : prerequisites) {
       if (!map.containsKey(pr[0])) {
@@ -98,5 +78,24 @@ public class CourseSchedule2 {
     }
     colours[s] = 1;
     return false;
+  }
+
+  private static void createCourseOrder(int numCourses, int[][] prerequisites) {
+    boolean[] visited = new boolean[numCourses];
+    for (int i = 0; i < numCourses; i++) {
+      if (!visited[i]) {
+        dfs(i, visited);
+      }
+    }
+  }
+
+  private static void dfs(int s, boolean[] visited) {
+    visited[s] = true;
+    for (Integer n : map.getOrDefault(s, new ArrayList<>())) {
+      if (!visited[n]) {
+        dfs(n, visited);
+      }
+    }
+    result.add(s);
   }
 }
