@@ -4,8 +4,6 @@
 
 package com.shams.trees.binarytrees;
 
-import javax.swing.tree.TreeNode;
-
 public class DeepestLeavesSum {
 
   public static class TreeNode {
@@ -13,17 +11,8 @@ public class DeepestLeavesSum {
     TreeNode left;
     TreeNode right;
 
-    TreeNode() {
-    }
-
     TreeNode(int val) {
       this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-      this.val = val;
-      this.left = left;
-      this.right = right;
     }
   }
 
