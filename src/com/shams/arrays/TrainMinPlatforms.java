@@ -4,7 +4,6 @@
 package com.shams.arrays;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class TrainMinPlatforms {
   static int findPlatform(int arr[], int dep[], int n){
@@ -39,25 +38,6 @@ public class TrainMinPlatforms {
     }
 
     return result;
-  }
-
-
-  static class Pair {
-    int startTime;
-    int endTIme;
-
-    Pair(int st, int et) {
-      this.startTime = st;
-      this.endTIme = et;
-    }
-  }
-
-  int getMinPlatforms(List<Pair> input) {
-    //Stack<>
-    for(Pair pair : input) {
-
-    }
-    return 0;
   }
 
   // Driver code
