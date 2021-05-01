@@ -6,7 +6,6 @@
 package com.shams.arrays;
 
 import com.shams.commons.UtilityHelper;
-import java.util.Arrays;
 
 public class SwapSort {
   public static void main(String[] args) {
