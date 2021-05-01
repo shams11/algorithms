@@ -40,12 +40,12 @@ public class IntegerToRoman {
   };
 
   public static String intToRoman(int num) {
-    String output = "";
+    StringBuilder output = new StringBuilder();
     for (Numeral numeral : numerals) {
       int numberOfSymbols = num / numeral.value;
-      output += numeral.symbol.repeat(numberOfSymbols);
+      output.append(numeral.symbol.repeat(numberOfSymbols));
       num = num % numeral.value;
     }
-    return output;
+    return output.toString();
   }
 }
