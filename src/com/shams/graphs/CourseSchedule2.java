@@ -12,6 +12,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Notes : A graph must be Directed Acyclic Graph(DAG) to apply topological sort
+ * A DAG will always have at-least one in-degree and at-least out-degree nodes
+ * */
 public class CourseSchedule2 {
   public static void main(String[] args) {
     int[][] prerequisites = {
@@ -36,7 +40,7 @@ public class CourseSchedule2 {
     if (isCycle(numCourses, colours)) {
       return new int[0];
     }
-    createCourseOrder(numCourses, prerequisites);
+    createCourseOrder(numCourses);
 
     //Collections.reverse(result);
     int[] a = new int[result.size()];
@@ -80,7 +84,7 @@ public class CourseSchedule2 {
     return false;
   }
 
-  private static void createCourseOrder(int numCourses, int[][] prerequisites) {
+  private static void createCourseOrder(int numCourses) {
     boolean[] visited = new boolean[numCourses];
     for (int i = 0; i < numCourses; i++) {
       if (!visited[i]) {
