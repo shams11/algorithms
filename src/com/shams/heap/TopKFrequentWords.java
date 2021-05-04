@@ -29,8 +29,8 @@ public class TopKFrequentWords {
       return frequency1 - frequency2;
     });
 
-    for(Map.Entry<String, Integer> e : map.entrySet()) {
-      pq.add(e.getKey());
+    for(String e : map.keySet()) {
+      pq.add(e);
       if(pq.size() > k) {
         pq.poll();
       }
