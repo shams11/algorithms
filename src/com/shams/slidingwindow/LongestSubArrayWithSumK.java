@@ -8,21 +8,21 @@ package com.shams.slidingwindow;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MaxLenSubArrayOfSizeK {
+public class LongestSubArrayWithSumK {
 
   public static void main(String args[]) {
-//    int[] a = {10, 5, 2, 7, 1, 9};
-//    int k = 15;
+    int[] a = {10, 5, 2, 7, 1, 9};
+    int k = 15;
     // Output : 4
 
     // Output : 5
-    int[] a = {-5, 8, -14, 2, 4, 12};
-    int k = -5;
+//    int[] a = {-5, 8, -14, 2, 4, 12};
+//    int k = -5;
     int n = a.length;
-    System.out.println("Length = " + lenOfLongestSubArray(a, n, k));
+    System.out.println("Length = " + longestSubArrayWithSumK(a, n, k));
   }
 
-  private static int lenOfLongestSubArray(int[] a, int n, int k) {
+  private static int longestSubArrayWithSumK(int[] a, int n, int k) {
     int sum = 0, max = 0;
     Map<Integer, Integer> map = new HashMap<>();
     for (int i = 0; i < n; i++) {

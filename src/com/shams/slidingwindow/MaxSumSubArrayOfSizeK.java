@@ -5,10 +5,11 @@
 
 package com.shams.slidingwindow;
 
-public class MaxSumSubArray {
+public class MaxSumSubArrayOfSizeK {
   public static void main(String[] args) {
     int[] a = {2, 5, 1, 8, 2, 9, 1};
     int k = 3;
+    // Output : 19
     System.out.println(maxSumSubArray(a, k));
   }
 
