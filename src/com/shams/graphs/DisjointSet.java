@@ -28,6 +28,8 @@ public class DisjointSet {
     return false;
   }
 
+  // Disjoint set  can't detect cycle in directed graph (it doesn't take care of directionality)
+  // Disjoint set can determine whether 2 given points belong to same set
   private static boolean isCycle(int[][] edges) {
     for (int[] e : edges) {
       int fromParent = find(e[0]);
