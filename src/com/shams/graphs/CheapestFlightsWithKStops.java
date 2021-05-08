@@ -22,7 +22,7 @@ public class CheapestFlightsWithKStops {
 //    };
     // Output: 200
 
-    int n = 3, src = 0, dst = 2, k = 0;
+    int n = 3, src = 0, dst = 2, k = 2;
     int[][] flights = {
         {0, 1, 100},
         {1, 2, 100},
