@@ -35,11 +35,15 @@ public class KosaRajuStronglyConnectedComponents {
   static boolean[] visited = new boolean[v];
 
   private static List<List<Integer>> kosaRajuStroinglyConnectedComponents(int[][] graph) {
-    List<List<Integer>> result = new ArrayList<>();
     buildGraph(graph);
     dfs();
     reverseEdges(graph);
     Arrays.fill(visited, false);
+    return popStackAndApplyDfs();
+  }
+
+  private static List<List<Integer>> popStackAndApplyDfs() {
+    List<List<Integer>> result = new ArrayList<>();
     while (!s.isEmpty()) {
       int cur = s.pop();
       List<Integer> list = new ArrayList<>();
