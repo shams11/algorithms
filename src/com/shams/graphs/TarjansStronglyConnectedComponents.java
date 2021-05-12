@@ -68,6 +68,8 @@ public class TarjansStronglyConnectedComponents {
         low[u] = Math.min(low[u], low[v]);
       } else if (presentInStack[v]) {
         // back-edge (edge from child to one of the ancestor of parent)
+        // We need to maintain the earliest possible node which is accessible from the
+        // current node, which will indicate the back edge
         low[u] = Math.min(low[u], disc[v]);
       }
     }
