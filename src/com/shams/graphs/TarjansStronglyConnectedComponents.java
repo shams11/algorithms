@@ -55,6 +55,7 @@ public class TarjansStronglyConnectedComponents {
   static List<List<Integer>> result = new ArrayList<>();
 
   private static void dfs(int u) {
+    // low time of current node => Node with lowest discovery time accessible from the current node
     disc[u] = low[u] = time;
     s.push(u);
     presentInStack[u] = true;
@@ -63,13 +64,15 @@ public class TarjansStronglyConnectedComponents {
     for (int v : neighbors) {
       if (disc[v] == -1) {
         dfs(v);
+        // tree edge (parent - child edge)
         low[u] = Math.min(low[u], low[v]);
       } else if (presentInStack[v]) {
+        // back-edge (edge from child to one of the ancestor of parent)
         low[u] = Math.min(low[u], disc[v]);
       }
     }
 
-    // Root of component
+    // Root of component => if both disc and low time of a node is same
     if (disc[u] == low[u]) {
       list = new ArrayList<>();
       while (s.peek() != u) {
