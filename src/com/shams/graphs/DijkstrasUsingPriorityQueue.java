@@ -14,7 +14,7 @@ import java.util.PriorityQueue;
 
 public class DijkstrasUsingPriorityQueue {
   public static void main(String[] args) {
-    int v = 5;
+    int v = 9;
     int source = 0;
     dijkstras(source, v);
   }
@@ -45,6 +45,7 @@ public class DijkstrasUsingPriorityQueue {
           }
         }
       }
+      visited[cur.node] = true;
     }
     printDijkstra(dist, src, v);
   }
@@ -58,12 +59,55 @@ public class DijkstrasUsingPriorityQueue {
   }
 
   private static void addEdges() {
-    map.get(0).add(new Node(1, 9));
-    map.get(0).add(new Node(2, 6));
-    map.get(0).add(new Node(3, 5));
-    map.get(0).add(new Node(4, 3));
-    map.get(2).add(new Node(1, 2));
-    map.get(2).add(new Node(3, 4));
+    map.get(0).add(new Node(1, 4));
+    map.get(0).add(new Node(7, 8));
+    map.get(1).add(new Node(0, 4));
+    map.get(1).add(new Node(2, 8));
+    map.get(1).add(new Node(7, 11));
+    map.get(2).add(new Node(3, 7));
+    map.get(2).add(new Node(1, 8));
+    map.get(2).add(new Node(8, 2));
+    map.get(2).add(new Node(5, 4));
+    map.get(3).add(new Node(4, 9));
+    map.get(3).add(new Node(5, 14));
+    map.get(3).add(new Node(2, 7));
+    map.get(4).add(new Node(3, 9));
+    map.get(4).add(new Node(5, 10));
+    map.get(5).add(new Node(4, 10));
+    map.get(5).add(new Node(3, 14));
+    map.get(5).add(new Node(2, 4));
+    map.get(5).add(new Node(6, 2));
+    map.get(6).add(new Node(5, 2));
+    map.get(6).add(new Node(8, 6));
+    map.get(6).add(new Node(7, 1));
+    map.get(7).add(new Node(6, 1));
+    map.get(7).add(new Node(8, 7));
+    map.get(7).add(new Node(0, 8));
+    map.get(7).add(new Node(1, 11));
+    map.get(8).add(new Node(6, 6));
+    map.get(8).add(new Node(2, 2));
+    map.get(8).add(new Node(7, 7));
+
+//    map.get(0).add(new Node(1, 1));
+//    map.get(0).add(new Node(2, 4));
+//    map.get(1).add(new Node(0, 1));
+//    map.get(1).add(new Node(2, 4));
+//    map.get(1).add(new Node(4, 7));
+//    map.get(1).add(new Node(3, 2));
+//    map.get(2).add(new Node(0, 4));
+//    map.get(2).add(new Node(1, 4));
+//    map.get(2).add(new Node(3, 3));
+//    map.get(2).add(new Node(4, 5));
+//    map.get(3).add(new Node(2, 3));
+//    map.get(3).add(new Node(1, 2));
+//    map.get(3).add(new Node(4, 4));
+//    map.get(3).add(new Node(5, 6));
+//    map.get(4).add(new Node(1, 7));
+//    map.get(4).add(new Node(5, 7));
+//    map.get(4).add(new Node(3, 4));
+//    map.get(4).add(new Node(2, 5));
+//    map.get(5).add(new Node(4, 7));
+//    map.get(5).add(new Node(3, 6));
   }
 
   static class Node {
