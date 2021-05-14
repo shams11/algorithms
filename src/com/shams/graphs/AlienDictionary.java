@@ -22,15 +22,15 @@ public class AlienDictionary {
   private static String alienOrder(String[] words) {
     if (words == null) return "";
     Map<Character, Set<Character>> map = new HashMap<>();
-    int[] indegree = new int[26];
-    buildGraph(words, map, indegree);
+    buildGraph(words, map);
     System.out.println(map);
     boolean[] visited = new boolean[26];
-    getAlienOrder(map, visited, indegree);
+    System.out.println(" Key set : "  + map.keySet());
+    getAlienOrder(map, visited);
     return result.reverse().toString();
   }
 
-  private static void getAlienOrder(Map<Character, Set<Character>> map, boolean[] visited, int[] indegree) {
+  private static void getAlienOrder(Map<Character, Set<Character>> map, boolean[] visited) {
     for (Character c : map.keySet()) {
       if (!visited[c - 'a']) {
         dfs(c, map, visited);
@@ -48,7 +48,8 @@ public class AlienDictionary {
     result.append(s);
   }
 
-  private static void buildGraph(String[] words, Map<Character, Set<Character>> map, int[] indegree) {
+  private static void buildGraph(
+      String[] words, Map<Character, Set<Character>> map) {
     for (String word : words) {
       for (char c : word.toCharArray()) {
         map.putIfAbsent(c, new HashSet<>());
@@ -64,7 +65,6 @@ public class AlienDictionary {
         char in = second.charAt(j);
         if (out != in) {
           map.get(out).add(in);
-          indegree[first.charAt(j) - 'a']++;
           break;
         }
       }
