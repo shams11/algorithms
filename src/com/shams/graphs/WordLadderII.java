@@ -12,8 +12,14 @@ import java.util.Set;
 
 public class WordLadderII {
   public static void main(String[] args) {
+
+//    String beginWord = "hot", endWord = "dog";
+//    List<String> wordList = List.of("hot","dog");
+    // Output = 0
+
     String beginWord = "hit", endWord = "cog";
-    List<String> wordList = List.of("hot","dot","dog","lot","log");
+    List<String> wordList =  List.of("hot","dot","dog","lot","log","cog");
+    // Output = 5
     System.out.println(findLadders(beginWord, endWord, wordList));
   }
 
@@ -41,8 +47,8 @@ public class WordLadderII {
             }
             curWordCharArray[j] = c;
             String newWord = new String(curWordCharArray);
-            if (curWord.equals(endWord)) {
-              return depth;
+            if (newWord.equals(endWord)) {
+              return depth + 1;
             }
             if (set.contains(newWord)) {
               q.add(newWord);
@@ -54,6 +60,6 @@ public class WordLadderII {
       }
       depth++;
     }
-    return depth;
+    return 0;
   }
 }
