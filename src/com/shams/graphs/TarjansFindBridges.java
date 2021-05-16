@@ -1,13 +1,12 @@
 package com.shams.graphs;
 
-import com.shams.heap.FrequencySort;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FindBridgesUsingTarjanAlgo {
+public class TarjansFindBridges {
   public static void main(String[] args) {
     int[][] graph = {
         {0, 2},

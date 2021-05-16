@@ -8,7 +8,7 @@ package com.shams.graphs;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ShortestBridge {
+public class ShortestBridgeUsingFloodFill {
   public static void main(String[] args) {
 //    int[][] a = {
 //        {0, 1},
