@@ -32,6 +32,9 @@ public class TarjansStronglyConnectedComponents {
     System.out.println(tarjans(graph));
   }
 
+  // discovery time : time of the node when it is discovered
+  // low time : From the current node, the node which is reachable with lowest possible discovery time
+
   static Map<Integer, List<Integer>> map = new HashMap<>();
   static Stack<Integer> s = new Stack<>();
   static int[] disc = new int[v];

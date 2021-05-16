@@ -63,9 +63,13 @@ public class TarjansArticulationPoints {
         if (parent[u] == -1 && children > 1) {
           result.add(u);
         }
-        // Case-2: if current node is not parent, if the current node is removed then
-        // sub-graph/sub child will become separate component. its low time will be definitely
-        // greater than discovery time of its parent
+        // Case-2: if current node v which is not parent, and it has a sub-graph, No vertex in this sub-graph
+        // had back -edge to one of the ancestors of this node rooted  v, then removing this node v will
+        // make the sub-graph separate component
+        // if there is no back edge to ancestor of parent node, then the low time will not updated.
+        // hence low time of child will be always greater than the discovery time of parent. so the
+        // parent node contributes to articulation point. (i.e removing of parent node will
+        // increase the number of components in the graph)
         if (parent[u] != -1 && low[v] >= disc[u]) {
           result.add(u);
         }
