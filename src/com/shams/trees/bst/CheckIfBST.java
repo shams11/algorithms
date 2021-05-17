@@ -24,7 +24,8 @@ public class CheckIfBST {
     if(root == null)
       return true;
 
-    if(!isBST(root.left))
+    boolean left = isBST(root.left);
+    if(!left)
       return false;
 
     if(prev != null && prev.val > root.val) {
