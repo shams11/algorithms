@@ -1,5 +1,6 @@
 /**
  * https://www.geeksforgeeks.org/inorder-successor-in-binary-search-tree/
+ * https://leetcode.com/problems/inorder-successor-in-bst/
  */
 
 package com.shams.trees.bst;
