@@ -5,6 +5,8 @@
 package com.shams.trees.binarytrees;
 
 import com.shams.commons.UtilityHelper;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CheckInPrePoTraversalsBelongsToSameTree1 {
 
@@ -31,9 +33,13 @@ public class CheckInPrePoTraversalsBelongsToSameTree1 {
     System.out.println(AreGivenTraversalsBelongToSameTree(in, pre, po));
   }
 
+  static Map<Integer, Integer> map = new HashMap<>();
   private static boolean AreGivenTraversalsBelongToSameTree(int[] in, int[] pre, int[] po) {
     if (in.length != pre.length || in.length != po.length) return false;
 
+    for(int i = 0; i < in.length; i++) {
+      map.put(in[i], i);
+    }
     UtilityHelper.Node root = buildTreeFromInAndPreOrder(in, pre, 0, in.length - 1);
     int result = evaluatePostorder(po, root, 0);
     if (result == -1) {
@@ -70,7 +76,7 @@ public class CheckInPrePoTraversalsBelongsToSameTree1 {
       return root;
     }
 
-    int rootIndex = search(in, inStart, inEnd, root.val);
+    int rootIndex = map.get(root.val);
 
     root.left = buildTreeFromInAndPreOrder(in, pre, inStart, rootIndex - 1);
     root.right = buildTreeFromInAndPreOrder(in, pre, rootIndex + 1, inEnd);
