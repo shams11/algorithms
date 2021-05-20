@@ -4,8 +4,6 @@
 
 package com.shams.trees.bst;
 
-import com.shams.trees.binarytrees.ConstructBTFromInAndLevelOrder;
-
 public class RecoverBST {
 
   public static void main(String[] args) {
