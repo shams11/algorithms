@@ -1,5 +1,6 @@
 /**
  * https://leetcode.com/problems/binary-tree-vertical-order-traversal/
+ * https://www.youtube.com/watch?v=vGkg_R8klu8&ab_channel=WorkWithGoogler
  * */
 package com.shams.trees.binarytrees;
 
@@ -21,11 +22,23 @@ public class VerticalOrderTraversal {
   }
 
   public static void main(String[] args) {
+//    TreeNode root = new TreeNode(3);
+//    root.left = new TreeNode(9);
+//    root.right = new TreeNode(20);
+//    root.right.left = new TreeNode(15);
+//    root.right.right = new TreeNode(7);
+
+
     TreeNode root = new TreeNode(3);
     root.left = new TreeNode(9);
-    root.right = new TreeNode(20);
-    root.right.left = new TreeNode(15);
+
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(0);
+    root.right = new TreeNode(8);
+    root.right.left = new TreeNode(1);
+    root.right.left.left = new TreeNode(5);
     root.right.right = new TreeNode(7);
+    root.right.left.right = new TreeNode(2);
 
     System.out.println(verticalOrder(root));
   }
