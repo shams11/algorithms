@@ -4,6 +4,9 @@
 
 package com.shams.trees.binarytrees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class DeepestLeavesSum {
 
   public static class TreeNode {
@@ -36,6 +39,28 @@ public class DeepestLeavesSum {
     root.right.left.left = new TreeNode(4);
     root.right.right.right = new TreeNode(5);
     System.out.println(deepestLeavesSum(root));
+    System.out.println(deepestLeavesSumLevelOrder(root));
+  }
+
+  public static int deepestLeavesSumLevelOrder(TreeNode root) {
+    Queue<TreeNode> q = new LinkedList<>();
+    q.offer(root);
+    int result = 0;
+    while (!q.isEmpty()) {
+      int size = q.size();
+      result = 0;
+      for (int i = 0; i < size; i++) {
+        root = q.poll();
+        result += root.val;
+        if (root.left != null) {
+          q.offer(root.left);
+        }
+        if (root.right != null) {
+          q.offer(root.right);
+        }
+      }
+    }
+    return result;
   }
 
   static int sum = 0;
