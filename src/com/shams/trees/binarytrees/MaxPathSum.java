@@ -1,7 +1,7 @@
 /**
  * https://www.youtube.com/watch?v=Osz-Vwer6rw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=49
  * https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
- * https://leetcode.com/problems/binary-tree-maximum-path-sum/
+ * https://leetcode.com/problems/binary-tree-maximum-path-sum/submissions/
  */
 
 package com.shams.trees.binarytrees;
