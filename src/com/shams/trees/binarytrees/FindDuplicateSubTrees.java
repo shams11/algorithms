@@ -68,6 +68,7 @@ public class FindDuplicateSubTrees {
     return key;
   }
 
+  // Intial approach
   public static List<TreeNode> findDuplicateSubtrees1(TreeNode root) {
     Map<Integer, TreeNode> nodeTreeNodeMap = new HashMap<>();
     List<TreeNode> dupSubTreesNodes = new ArrayList<>();
