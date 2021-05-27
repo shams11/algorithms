@@ -30,8 +30,8 @@ public class TopKFrequentNumbers {
       int frequency2 = map.get(e2);
       return frequency1 - frequency2;
     });
-    for (Map.Entry<Integer, Integer> e : map.entrySet()) {
-      pq.add(e.getKey());
+    for (Integer e : map.keySet()) {
+      pq.add(e);
       if (pq.size() > k) {
         pq.poll();
       }
