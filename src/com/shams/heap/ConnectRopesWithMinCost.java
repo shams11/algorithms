@@ -22,19 +22,19 @@ public class ConnectRopesWithMinCost {
       pq.add(value);
     }
 
-    int cost = 0;
-    int curCost = 0;
+    int totalCost = 0;
+    int curCost;
     while (!pq.isEmpty()) {
       int rope1 = pq.poll();
       int rope2 = pq.poll();
       curCost = rope1 + rope2;
-      cost += curCost;
+      totalCost += curCost;
       if (!pq.isEmpty()) {
         pq.add(curCost);
       } else {
         break;
       }
     }
-    return cost;
+    return totalCost;
   }
 }

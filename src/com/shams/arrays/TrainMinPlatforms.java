@@ -1,12 +1,13 @@
 /***
  * https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/
  * */
+
 package com.shams.arrays;
 
 import java.util.Arrays;
 
 public class TrainMinPlatforms {
-  static int findPlatform(int arr[], int dep[], int n){
+  static int findPlatform(int arr[], int dep[], int n) {
     // Sort arrival and departure arrays
     Arrays.sort(arr);
     Arrays.sort(dep);
@@ -41,10 +42,9 @@ public class TrainMinPlatforms {
   }
 
   // Driver code
-  public static void main(String[] args)
-  {
-    int arr[] = { 100, 140, 150, 200, 215 };
-    int dep[] = { 110, 300, 220, 230, 315 };
+  public static void main(String[] args) {
+    int[] arr = {100, 140, 150, 200, 215};
+    int[] dep = {110, 300, 220, 230, 315};
     int n = arr.length;
     System.out.println("Minimum Number of Platforms Required = "
         + findPlatform(arr, dep, n));

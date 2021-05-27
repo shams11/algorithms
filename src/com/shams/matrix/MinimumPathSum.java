@@ -51,7 +51,7 @@ public class MinimumPathSum {
       }
     }
     if (i == m - 1 && j == n - 1) {
-      min = 0;
+      min = 0; // last cell will not be compared with any other adjacent cells
     }
     t[i][j] = g[i][j] + min;
     return t[i][j];

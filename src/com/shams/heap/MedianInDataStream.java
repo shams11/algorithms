@@ -1,6 +1,7 @@
 /**
  * https://www.geeksforgeeks.org/median-of-stream-of-integers-running-integers/
  * https://www.youtube.com/watch?v=1LkOrc-Le-Y&ab_channel=TECHDOSE
+ * https://leetcode.com/problems/find-median-from-data-stream/
  */
 
 package com.shams.heap;
@@ -28,6 +29,13 @@ public class MedianInDataStream {
       maxHeap.add(n);
       return maxHeap.peek();
     } else if (maxHeap.size() == minHeap.size()) {
+      // when heap sizes are euqal adding in max heap because, when new element is added,
+      // there will be total of odd element in both heaps. then we need to
+      // return the peek of max heap
+      // max heap will contain smaller elements ex : [1, 2, 3, 4]
+      // min heap will contain max elements ex : [7, 8, 9, 10]
+
+      // if there are equal elements add in max heap
       if (n > minHeap.peek()) {
         maxHeap.add(minHeap.poll());
         minHeap.add(n);
@@ -36,6 +44,7 @@ public class MedianInDataStream {
       }
       return maxHeap.peek();
     } else {
+      // if there are un-equal total elements, then add in min heap
       if (n > maxHeap.peek()) {
         minHeap.add(n);
       } else {
