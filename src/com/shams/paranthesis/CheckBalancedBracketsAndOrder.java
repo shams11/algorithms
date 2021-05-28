@@ -22,7 +22,7 @@ public class CheckBalancedBracketsAndOrder {
 */
 
   public static void main(String[] str) {
-    String input = "(){}{}[]";
+    String input = "([])";
     System.out.println(areBracketsValid(input));
   }
 
@@ -39,44 +39,41 @@ public class CheckBalancedBracketsAndOrder {
       c = str.charAt(i);
       if (s.isEmpty()) {
         s.push(c);
-        continue;
-      } else {
+      } else if (c == '{' || c == '[' || c == '(') {
         sTop = s.peek();
-        if (c == '{' || c == '[' || c == '(') {
-          if (sTop == '(') {
-            if (c == '{' || c == '[')
-              return false;
-          }
-
-          if (sTop == '[') {
-            if (c == '{')
-              return false;
-          }
-          s.push(c);
-          continue;
+        if (sTop == '(') {
+          if (c == '{' || c == '[')
+            return false;
         }
-      }
-      switch (c) {
-        case ')':
-          x = s.pop();
-          if (x == '}' || x == ']') {
+
+        if (sTop == '[') {
+          if (c == '{')
             return false;
-          }
-          break;
-        case ']':
-          x = s.pop();
-          if (x == ')' || x == '}') {
+        }
+        s.push(c);
+      } else {
+        switch (c) {
+          case ')':
+            x = s.pop();
+            if (x == '}' || x == ']') {
+              return false;
+            }
+            break;
+          case ']':
+            x = s.pop();
+            if (x == ')' || x == '}') {
+              return false;
+            }
+            break;
+          case '}':
+            x = s.pop();
+            if (x == ')' || x == ']') {
+              return false;
+            }
+            break;
+          default:
             return false;
-          }
-          break;
-        case '}':
-          x = s.pop();
-          if (x == ')' || x == ']') {
-            return false;
-          }
-          break;
-        default:
-          return false;
+        }
       }
     }
     return s.isEmpty();
