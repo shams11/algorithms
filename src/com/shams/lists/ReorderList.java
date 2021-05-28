@@ -1,5 +1,6 @@
 /**
  * https://leetcode.com/problems/reorder-list/
+ * https://www.youtube.com/watch?v=xRYPjDMSUFw&ab_channel=NickWhiteNickWhite
  */
 
 package com.shams.lists;
