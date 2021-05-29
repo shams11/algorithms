@@ -1,5 +1,6 @@
 /**
  * https://leetcode.com/problems/intersection-of-two-linked-lists/
+ * https://www.youtube.com/watch?v=IpBfg9d4dmQ&ab_channel=NickWhite
  * */
 package com.shams.lists;
 
