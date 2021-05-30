@@ -1,7 +1,8 @@
 /**
  * https://leetcode.com/problems/word-ladder-ii/submissions/
  * https://www.youtube.com/watch?v=M9cVl4d0v04
- * */
+ */
+
 package com.shams.graphs;
 
 import java.util.HashSet;
@@ -18,14 +19,14 @@ public class WordLadderII {
     // Output = 0
 
     String beginWord = "hit", endWord = "cog";
-    List<String> wordList =  List.of("hot","dot","dog","lot","log","cog");
+    List<String> wordList = List.of("hot", "dot", "dog", "lot", "log", "cog");
     // Output = 5
     System.out.println(findLadders(beginWord, endWord, wordList));
   }
 
   static public int findLadders(String beginWord, String endWord, List<String> wordList) {
     Set<String> set = new HashSet<>(wordList);
-    if(!set.contains(endWord)) {
+    if (!set.contains(endWord)) {
       return 0;
     }
     Queue<String> q = new LinkedList<>();
@@ -33,11 +34,12 @@ public class WordLadderII {
     int depth = 1;
 
     while (!q.isEmpty()) {
-
       int size = q.size();
-      for (int i = 0; i < size;  i++) {
+      for (int i = 0; i < size && !q.isEmpty(); i++) {
         String curWord = q.poll();
-
+        if (curWord.equals(endWord)) {
+          return depth;
+        }
         char[] curWordCharArray = curWord.toCharArray();
         for (int j = 0; j < curWordCharArray.length; j++) {
           char originalCharacter = curWordCharArray[j];
@@ -47,9 +49,6 @@ public class WordLadderII {
             }
             curWordCharArray[j] = c;
             String newWord = new String(curWordCharArray);
-            if (newWord.equals(endWord)) {
-              return depth + 1;
-            }
             if (set.contains(newWord)) {
               q.add(newWord);
               set.remove(newWord);
