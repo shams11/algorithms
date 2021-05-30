@@ -19,8 +19,6 @@ public class LexicographicDictionarySearchInTrie {
     }
   }
 
-
-
   public static void insert(Trie root, String s, int stringIndexInArray) {
     Trie node = root;
     for (int i = 0; i < s.length(); ++i) {
