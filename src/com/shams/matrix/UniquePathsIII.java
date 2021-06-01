@@ -57,7 +57,6 @@ public class UniquePathsIII {
     if (grid[i][j] == 2) {
       return zero == -1 ? 1 : 0;
     }
-    int temp = grid[i][j];
     grid[i][j] = -1;
     zero--;
     int totalPaths = dfs(grid, i - 1, j, zero)
@@ -66,7 +65,6 @@ public class UniquePathsIII {
         + dfs(grid, i, j + 1, zero);
 
     grid[i][j] = 0;
-    zero++;
     return totalPaths;
   }
 }
