@@ -5,6 +5,13 @@
 package com.shams.dp;
 
 public class Knapsack {
+
+  // DP  categories
+  // 0/1 Knapsack
+  // Unbounded Knapsack - http://www.quora.com/What-does-a-state-represent-in-terms-of-Dynamic-Programming
+  // Shortest Path (eg: Unique Paths I/II)
+  // Fibonacci Sequence (eg: House Thief, Jump Game)
+  // Longest Common Substring/Subsequeunce
   public static void main(String[] args) {
     int val[] = new int[]{60, 100, 120};
     int wt[] = new int[]{10, 20, 30};

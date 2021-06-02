@@ -5,7 +5,7 @@
 
 package com.shams.dp;
 
-public class UnboundedKnapsackOrRodCuddingProblem {
+public class UnboundedKnapsackOrRodCuttingProblem {
 
   public static void main(String[] args) {
     int[] prices = {1, 5, 8, 9, 10, 17, 17, 20};

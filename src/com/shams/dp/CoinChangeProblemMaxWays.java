@@ -6,8 +6,8 @@ package com.shams.dp;
 
 public class CoinChangeProblemMaxWays {
   public static void main(String[] args) {
-    int[] coins = {};
-    System.out.println(change(0, coins));
+    int[] coins = {1, 3, 4};
+    System.out.println(change(4, coins));
 
   }
   public static int change(int amount, int[] coins) {

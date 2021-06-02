@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MinSubsetSumDiff {
   public static void main(String[] args) {
-    int[] a = {1, 2, 7};
+    int[] a = {1, 6, 11, 5};
     int n = a.length;
     System.out.println(findMinSubsetDiff(a, n));
   }
@@ -54,8 +54,8 @@ public class MinSubsetSumDiff {
 
     // if [1, 2, 7] is the input, then the elements (which are s1) in the last row of the matrix which are
     // contributing to sum. place these s1's in sum - 2 * s1 and take min, that will be the answer
-    for (Integer i : lastRowInMatrix) {
-      min = Math.min(min, sum - 2 * i);
+    for (Integer s1 : lastRowInMatrix) {
+      min = Math.min(min, sum - 2 * s1);
     }
     return min;
   }
