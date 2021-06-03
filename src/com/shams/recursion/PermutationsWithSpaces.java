@@ -6,7 +6,9 @@ package com.shams.recursion;
 public class PermutationsWithSpaces {
   public static void main(String[] args) {
     String ip = "ABC";
-    solve("", ip);
+    String op = "" + ip.charAt(0);
+    ip = ip.substring(1);
+    solve(op, ip);
   }
 
   private static void solve(String op, String ip) {
@@ -14,13 +16,9 @@ public class PermutationsWithSpaces {
       System.out.println("[" + op + "]");
       return;
     }
-    if (op.equals("")) {
-      op = op + ip.charAt(0);
-      ip = ip.substring(1);
-    }
-    String op1 = op + "_" + ip.charAt(0);
-    String op2 = op;
-    op2 = op + ip.charAt(0);
+
+    String op1 = op + "_" + ip.charAt(0); // with space
+    String op2 = op + ip.charAt(0); // without space
     ip = ip.substring(1);
     solve(op1, ip);
     solve(op2, ip);

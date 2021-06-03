@@ -5,7 +5,7 @@
 
 package com.shams.recursion;
 
-public class KthGrrammer {
+public class KthGrammar {
   public static void main(String[] args) {
     System.out.println(kthGrammar(4, 5));
   }

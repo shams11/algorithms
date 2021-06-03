@@ -1,3 +1,6 @@
+/**
+ * https://leetcode.com/problems/generate-parentheses/
+ * */
 package com.shams.recursion;
 
 import java.util.ArrayList;
@@ -15,13 +18,13 @@ public class GenerateBalancedParenthesis {
       return result;
     }
     if (open != 0) {
-      String op1 = op;
-      op1 = op1 + "(";
+      // Always you have a choice to use open bracket unless it is 0
+      String op1 = op + "(";
       solve(op1, open-1, close, result);
     }
     if (close > open) {
-      String op2 = op;
-      op2 = op2 + ")";
+      // close is used only when there is already open bracket
+     String op2 = op + ")";
       solve(op2, open, close-1, result);
     }
     return result;

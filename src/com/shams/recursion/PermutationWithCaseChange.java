@@ -14,10 +14,9 @@ public class PermutationWithCaseChange {
       System.out.println(op);
       return;
     }
-    String op1 = op;
-    String op2 = op;
-    op1 = op1 + ip.charAt(0);
-    op2 = op2 + String.valueOf(ip.charAt(0)).toUpperCase();
+
+    String op1 = op + ip.charAt(0);
+    String op2 = op + String.valueOf(ip.charAt(0)).toUpperCase();
     ip = ip.substring(1);
     solve(op1, ip);
     solve(op2, ip);
