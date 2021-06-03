@@ -22,7 +22,7 @@ public class ShortestCommonSupersequence {
     System.out.println("length of shortest common super sequence : " + (m + n - l));
   }
 
-  // Shortest common super sequence => ((len of X +  len of Y) - LCS) 
+  // Shortest common super sequence => ((len of X +  len of Y) - LCS)
   private static int lcs(String x, String y, int m, int n) {
     for (int i = 0; i < m + 1; i++) {
       for (int j = 0; j < n + 1; j++) {
