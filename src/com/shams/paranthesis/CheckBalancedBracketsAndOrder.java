@@ -14,25 +14,22 @@ public class CheckBalancedBracketsAndOrder {
       "{[()]}" Valid
       "[()]" Valid
       "(()" Not Valid
-
-      [{}]
-
-
-      "}}}"
+      "[{}]"  valid
+      "}}}" Not valid
 */
 
   public static void main(String[] str) {
-    String input = "([])";
+    String input = "{{[[]]}}";
     System.out.println(areBracketsValid(input));
   }
 
   static boolean areBracketsValid(String str) {
-    if (str == null || str.equals("")) {
-      System.out.println("Invalid Input");
+
+    if (!isInputValid(str)) {
       return false;
     }
     Stack<Character> s = new Stack<>();
-    Character x;
+
     Character sTop;
     char c;
     for (int i = 0; i < str.length(); i++) {
@@ -40,42 +37,67 @@ public class CheckBalancedBracketsAndOrder {
       if (s.isEmpty()) {
         s.push(c);
       } else if (c == '{' || c == '[' || c == '(') {
-        sTop = s.peek();
-        if (sTop == '(') {
-          if (c == '{' || c == '[')
-            return false;
-        }
-
-        if (sTop == '[') {
-          if (c == '{')
-            return false;
-        }
-        s.push(c);
+        if (!evaluateBracketOrder(c, s)) return false;
       } else {
-        switch (c) {
-          case ')':
-            x = s.pop();
-            if (x == '}' || x == ']') {
-              return false;
-            }
-            break;
-          case ']':
-            x = s.pop();
-            if (x == ')' || x == '}') {
-              return false;
-            }
-            break;
-          case '}':
-            x = s.pop();
-            if (x == ')' || x == ']') {
-              return false;
-            }
-            break;
-          default:
-            return false;
+        if (!evaluateExpression(c, s)) {
+          return false;
         }
       }
     }
     return s.isEmpty();
+  }
+
+  private static boolean evaluateBracketOrder(char c, Stack<Character> s) {
+    char sTop = s.peek();
+    if (sTop == '(') {
+      if (c == '{' || c == '[')
+        return false;
+    }
+    if (sTop == '[') {
+      if (c == '{')
+        return false;
+    }
+    s.push(c);
+    return true;
+  }
+
+  private static boolean evaluateExpression(char c, Stack<Character> s) {
+    if (s.isEmpty()) return false;
+    Character x = s.pop();
+    switch (c) {
+      case ')':
+        if (x == '{' || x == '[') {
+          return false;
+        }
+        break;
+      case ']':
+        if (x == '(' || x == '{') {
+          return false;
+        }
+        break;
+      case '}':
+        if (x == '(' || x == '[') {
+          return false;
+        }
+        break;
+      default:
+        return false;
+    }
+    return true;
+  }
+
+  private static boolean isInputValid(String str) {
+    if (str == null || str.equals("")) {
+      System.out.println("Invalid Input");
+      return false;
+    }
+    if (str.length() % 2 != 0) {
+      return false;
+    }
+    char c = str.charAt(0);
+    if (c == '}' || c == ')' || c == ']') {
+      return false;
+    }
+    return true;
   }
 }

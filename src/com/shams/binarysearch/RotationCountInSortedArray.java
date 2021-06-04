@@ -19,6 +19,8 @@ public class RotationCountInSortedArray {
     System.out.println(rotationCount(a, 0, a.length - 1, a.length));
   }
 
+  // No of time arrays is rotated == index pf minimum element in the array
+  // Min element is small than both its neighbors
   private static int rotationCount(int[] a, int start, int end, int n) {
     int mid, next, prev;
     while (start <= end) {

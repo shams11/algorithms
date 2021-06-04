@@ -7,7 +7,7 @@ public class CheckBalancedBrackets {
 
   public static void main(String[] args) {
     String exp1 = "[()]{}{[()()]()}";
-    String exp = "]";
+    String exp = "{}[]";
 
     if (exp.length() % 2 != 0) {
       System.out.println("Brackets not balanced");
@@ -30,7 +30,7 @@ public class CheckBalancedBrackets {
         continue;
       }
 
-
+      if(stack.isEmpty()) return false;
       switch (x) {
         case ')':
           y = stack.pop();
@@ -52,18 +52,5 @@ public class CheckBalancedBrackets {
       }
     }
     return stack.isEmpty();
-  }
-
-  private static boolean matches(char openBracket, char closeBracket) {
-    if (openBracket == '{' && closeBracket == '}') {
-      return true;
-    }
-    if (openBracket == '(' && closeBracket == ')') {
-      return true;
-    }
-    if (openBracket == '[' && closeBracket == ']') {
-      return true;
-    }
-    return false;
   }
 }
