@@ -29,8 +29,7 @@ public class CheckBalancedBracketsAndOrder {
       return false;
     }
     Stack<Character> s = new Stack<>();
-
-    Character sTop;
+    
     char c;
     for (int i = 0; i < str.length(); i++) {
       c = str.charAt(i);
