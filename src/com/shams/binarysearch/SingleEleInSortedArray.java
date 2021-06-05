@@ -19,6 +19,8 @@ public class SingleEleInSortedArray {
       boolean isEven = (end - mid) % 2 == 0;
       if (nums[mid] == nums[mid - 1]) {
         if (isEven) {
+          // pair ele equal to mid is on the left of mid. if right half is even,
+          // then exact pairs are there on the right side. so move towards left
           end = mid - 2;
         } else {
           start = mid + 1;
