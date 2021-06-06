@@ -18,35 +18,39 @@ public class RotateSquareMatrixBy90DegreeInPlace {
   }
 
   private static void rotate90InPlace(int[][] a, int N) {
-    for (int x = 0; x < N / 2; x++) {
-      for (int y = x; y < N - x - 1; y++) {
-        int temp = a[x][y];
+    transpose(a, N);
+    reverseColumns(a, N);
+  }
 
-        // copy from top right to top left -> copy from (0, 3) to (0, 0)
-        a[x][y] = a[y][N - x - 1];
-
-        // copy from right bottom to top right -> copy from (3, 3) to (0, 3)
-        a[y][N - x - 1] = a[N - x - 1][N - y - 1];
-
-        // copy from left bottom to right bottom -> copy from (3, 0) to (3, 3)
-        a[N - x - 1][N - y - 1] = a[N - y - 1][x];
-
-        // copy from top left to bottom left -> copy from (0, 0) to (3, 0)
-        a[N - y - 1][x] = temp;
+  private static void reverseColumns(int[][] a, int n) {
+    for (int i = n-1; i >= 0; i--) {
+      for (int j = n-1, k = 0; j > k; j--, k++) {
+        swap(a, j, i, k, i);
       }
     }
   }
 
-  static void printMatrix(
-      int mat[][], int N) {
-    for (int i = 0; i < N; i++) {
-      for (int j = 0; j < N; j++)
-        System.out.print(
-            " " + mat[i][j]);
+  private static void swap(int[][] a, int i, int j, int k, int l) {
+    int temp = a[i][j];
+    a[i][j] = a[k][l];
+    a[k][l] = temp;
+  }
 
-      System.out.print("\n");
+  private static void transpose(int[][] a, int n) {
+    for (int i = 0; i < n; i++) {
+      for (int j = i; j < n; j++) {
+        swap(a, i, j, j, i);
+      }
     }
-    System.out.print("\n");
+  }
+
+  static void printMatrix(int[][] mat, int N) {
+    for (int i = 0; i < N; i++) {
+      for (int j = 0; j < N; j++) {
+        System.out.print(" " + mat[i][j]);
+      }
+      System.out.println();
+    }
   }
 }
 
