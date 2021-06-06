@@ -11,14 +11,48 @@ public class MinimumPathSum {
 //        {1, 5, 1},
 //        {4, 2, 1}
 //    };
+//    int[][] grid = {
+//        {1, 2, 3},
+//        {4, 5, 6}
+//    };
+
+    //Input :  [[1,3,1],[1,5,1],[4,2,1]]
+    // Output : 7
     int[][] grid = {
-        {1, 2, 3},
-        {4, 5, 6}
+        {1,3,1},
+        {1,5,1},
+        {4,2,1}
     };
     System.out.println(minPathSum(grid));
   }
 
+  // DP
   public static int minPathSum(int[][] grid) {
+    if(grid == null || grid.length == 0) return 0;
+    int m = grid.length; int n = grid[0].length;
+    int[][] t = new int[m][n];
+    for(int i = 0; i < m; i++) {
+      for(int j = 0; j < n; j++) {
+        if(i == 0 && j == 0) {
+          t[i][j] = grid[i][j];
+        }
+        else if(i == 0 || j == 0) {
+          if(i == 0) {
+            t[i][j] = t[i][j - 1];
+          }
+          if(j == 0) {
+            t[i][j] = t[i-1][j];
+          }
+        } else {
+          t[i][j] = grid[i][j] + Math.min(t[i-1][j], t[i][j-1]);
+        }
+      }
+    }
+    return t[m-1][n-1];
+  }
+
+  // bfs
+  public static int minPathSum1(int[][] grid) {
     int m = grid.length; // row length
     int n = grid[0].length; // column length
     int[][] t = new int[m][n];
