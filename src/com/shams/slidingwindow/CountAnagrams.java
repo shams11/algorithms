@@ -5,13 +5,15 @@
 
 package com.shams.slidingwindow;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CountAnagrams {
   public static void main(String[] args) {
-    String t = "forxxorfxdofr";
-    String p = "for";
+    String t = "cbaebabacd";
+    String p = "abc";
     System.out.println(countAnagrams(t, p));
   }
 
@@ -19,6 +21,7 @@ public class CountAnagrams {
     if (t == null || p == null || t.length() == 0 || p.length() == 0) {
       return 0;
     }
+    List<Integer> result = new ArrayList<>();
     Map<Character, Integer> map = new HashMap<>();
     for (int i = 0; i < p.length(); i++) {
       Character c = p.charAt(i);
@@ -39,6 +42,7 @@ public class CountAnagrams {
       } else if (j - i + 1 == k) {
         if (count == 0) {
           ans++;
+          result.add(i);
         }
         Character startChar = t.charAt(i);
         if (map.containsKey(startChar)) {
@@ -50,7 +54,7 @@ public class CountAnagrams {
         j++;
       }
     }
-
+    System.out.println(result);
     return ans;
   }
 }
