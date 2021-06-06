@@ -15,6 +15,16 @@ public class RotateMatrix90DegreeClockwise {
     };
     // Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
     rotate(a);
+    print(a);
+  }
+
+  private static void print(int[][] a) {
+    for(int i = 0; i < a.length; i++) {
+      for(int j = 0; j < a.length; j++) {
+        System.out.print(a[i][j] + " ");
+      }
+      System.out.println();
+    }
   }
 
   public static void rotate(int[][] m) {
