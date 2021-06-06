@@ -13,7 +13,9 @@ public class KthSmallestInSortedMatrix {
     //Output: 13
     //Explanation: The elements in the matrix are [1,5,9,10,11,12,13,13,15], and the 8th smallest number is 13
     int[][] a = {
-        {1, 5, 9}, {10, 11, 13}, {12, 13, 15}
+        {1, 5, 9},
+        {10, 11, 13},
+        {12, 13, 15}
     };
     int k = 8;
     System.out.println(kthSmallest(a, k));
@@ -33,7 +35,7 @@ public class KthSmallestInSortedMatrix {
 
   public static int kthSmallest(int[][] matrix, int k) {
     int m = matrix.length; // # of rows
-    int n = matrix[0].length; // # of colums
+    int n = matrix[0].length; // # of columns
     PriorityQueue<Node> pq = new PriorityQueue<>((e1, e2) -> e1.val - e2.val);
     for (int i = 0; i < n; i++) {
       pq.add(new Node(0, i, matrix[0][i]));
