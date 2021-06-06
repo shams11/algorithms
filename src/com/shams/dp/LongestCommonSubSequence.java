@@ -11,8 +11,8 @@ public class LongestCommonSubSequence {
 
   public static void main(String[] args) {
 
-    String s1 = "voldemort";
-    String s2 = "dumbledore";
+    String s1 = "horse";
+    String s2 = "ros";
 
     char[] X = s1.toCharArray();
     char[] Y = s2.toCharArray();
