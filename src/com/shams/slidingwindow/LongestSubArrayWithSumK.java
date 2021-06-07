@@ -1,6 +1,7 @@
 /***
  * https://www.youtube.com/watch?v=TfQPoaRDeMQ&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=9&ab_channel=AdityaVerma
  * https://www.geeksforgeeks.org/longest-sub-array-sum-k/
+ * https://leetcode.com/problems/subarray-sum-equals-k/
  * */
 
 package com.shams.slidingwindow;
@@ -10,7 +11,7 @@ import java.util.Map;
 
 public class LongestSubArrayWithSumK {
 
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     int[] a = {10, 5, 2, 7, 1, 9};
     int k = 15;
     // Output : 4
