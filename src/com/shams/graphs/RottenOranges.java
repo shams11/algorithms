@@ -10,9 +10,15 @@ import java.util.Queue;
 
 public class RottenOranges {
   public static void main(String[] args) {
+//    int[][] grid = {
+//        {1, 2}
+//    };
     int[][] grid = {
-        {1, 2}
+        {2, 1, 1},
+        {1, 1, 0},
+        {0, 1, 1}
     };
+    // Output: 4
     System.out.println(orangesRotting(grid));
   }
 
@@ -21,14 +27,14 @@ public class RottenOranges {
   public static int orangesRotting(int[][] grid) {
     int m = grid.length;
     int n = grid[0].length;
-    Queue<int[]> q = new LinkedList<>();
+    Queue<Integer> q = new LinkedList<>();
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
         if (grid[i][j] == 1) {
           ++ones;
         }
         if (grid[i][j] == 2) {
-          q.add(new int[]{i, j});
+          q.add(i * n + j);
         }
       }
     }
@@ -44,18 +50,20 @@ public class RottenOranges {
       {1, 0}
   };
 
-  private static int bfs(int[][] grid, Queue<int[]> q) {
+  private static int bfs(int[][] grid, Queue<Integer> q) {
     int count = 0;
     while (!q.isEmpty()) {
       int size = q.size();
       for (int i = 0; i < size; i++) {
-        int[] point = q.poll();
+        int index = q.poll();
+        int x1 = index / grid[0].length;
+        int y1 = index % grid[0].length;
         for (int[] d : DIRECTIONS) {
-          int x = d[0] + point[0];
-          int y = d[1] + point[1];
+          int x = d[0] + x1;
+          int y = d[1] + y1;
           if (x > -1 && y > -1 && x < grid.length && y < grid[0].length && grid[x][y] == 1) {
             grid[x][y] = 2;
-            q.add(new int[]{x, y});
+            q.add(x * grid[0].length + y);
             ones--;
           }
         }
