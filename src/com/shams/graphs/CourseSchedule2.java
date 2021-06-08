@@ -16,6 +16,14 @@ import java.util.Map;
  * Notes : A graph must be Directed Acyclic Graph(DAG) to apply topological sort
  * A DAG will always have at-least one in-degree and at-least out-degree nodes
  * */
+
+
+/**
+ * Algorithm
+ * 1. Build Graph (build Map)
+ * 2. isCyclePresent -> isCycleDFS()
+ * 3. createCourses -> dfs()
+ * */
 public class CourseSchedule2 {
   public static void main(String[] args) {
     int[][] prerequisites = {
