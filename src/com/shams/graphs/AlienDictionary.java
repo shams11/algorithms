@@ -13,6 +13,41 @@ import java.util.Set;
 
 public class AlienDictionary {
   public static void main(String[] args) {
+
+    /**
+     * Question
+     *
+     * There is a new alien language which uses the latin alphabet.
+     * However, the order among letters are unknown to you.
+     * You receive a list of words from the dictionary,
+     * where words are sorted lexicographically by the rules of this new language.
+     * Derive the order of letters in this language.
+     *
+     * For example,
+     * Given the following words in dictionary,
+     *
+     * [
+     * "wrt",
+     * "wrf",
+     * "er",
+     * "ett",
+     * "rftt"
+     * ]
+     * The correct order is: "wertf".
+     * */
+
+    /***
+     * Algorithm
+     * 1. Build graph with given words (build map) Map<Character, Set<Character>>
+     *    for each character of each word,
+     *      map.put(c, new HashSet<>());
+     *      | t | f |
+     *      | w | e |
+     *      | r | t |
+     *      | e | r |
+     *      | f | <> |
+     * 2. dfs and build result string
+     * */
     String[] words = {"wrt", "wrf", "er", "ett", "rftt"};
     System.out.println(alienOrder(words));
   }
