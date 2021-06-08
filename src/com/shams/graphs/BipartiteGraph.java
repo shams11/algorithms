@@ -2,13 +2,27 @@
  * https://leetcode.com/problems/possible-bipartition/submissions/
  * https://www.youtube.com/watch?v=0ACfAqs8mm0&list=PLEJXowNB4kPzByLnnFYNSCoqtFz0VKLk5&index=8&ab_channel=TECHDOSE
  * */
+
 package com.shams.graphs;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
+/***
+ * Algorithm
+ * ---------
+ * 1. Build Graph (build Map)
+ * 2. Have a colour array, initialized to -1
+ * 3. for each person in the loop, apply bfs
+ * 4. Assign colour 1 to parent and color 1 - color[parent] to child.
+ *    that means no 2 parent child will have same color
+ * 5. if parent/child has same color then return false
+ * */
 public class BipartiteGraph {
 
   static Queue<Integer> q = new LinkedList<>();
@@ -44,26 +58,22 @@ public class BipartiteGraph {
   }
 
   public static boolean possibleBiPartition(int N, int[][] dislikes) {
-    if(N == 1) return true;
+    if (N == 1) return true;
 
-    List[] map = new List[N + 1];
-    for(int i = 0; i <= N; i++) {
-      map[i] = new ArrayList<>();
-    }
-    for(int[] dislike: dislikes) {
-      map[dislike[0]].add(dislike[1]);
-      map[dislike[1]].add(dislike[0]);
-    }
-
-    int[] colours = new int[N+1];
-
-    for(int i = 1; i <= N; i++) {
-      colours[i] = -1;
+    Map<Integer, List<Integer>> map = new HashMap<>();
+    for (int[] d : dislikes) {
+      if (!map.containsKey(d[0])) {
+        map.put(d[0], new ArrayList<>());
+      }
+      map.get(d[0]).add(d[1]);
     }
 
-    for(int i = 1; i <= N; i++) {
-      if(colours[i] == -1) {
-        if(!isBiPartite(i, N, map, colours)) {
+    int[] colours = new int[N + 1];
+    Arrays.fill(colours, -1);
+    // Apply BFS
+    for (int i = 1; i <= N; i++) {
+      if (colours[i] == -1) {
+        if (!isBiPartite(i, N, map, colours)) {
           return false;
         }
       }
@@ -73,17 +83,16 @@ public class BipartiteGraph {
 
   // There are 2 colours {0, 1}. if the colour of a cur vertex is 1,
   // then 1 - colour[curVertex] will diff colour to its neighbour
-  static boolean isBiPartite(int s, int N, List[] map, int[] colours) {
+  static boolean isBiPartite(int s, int N, Map<Integer, List<Integer>> map, int[] colours) {
     colours[s] = 1;
     q.add(s);
-    while(!q.isEmpty()) {
+    while (!q.isEmpty()) {
       s = q.poll();
-      List<Integer> neighbours = (List<Integer>)map[s];
-      for(Integer u : neighbours) {
-        if(colours[u]  == colours[s]) {
+      for (Integer u : map.getOrDefault(s, new ArrayList<>())) {
+        if (colours[u] == colours[s]) {
           return false;
         }
-        if(colours[u] == -1) {
+        if (colours[u] == -1) {
           colours[u] = 1 - colours[s]; // give diff colour to neighbour
           q.add(u);
         }
