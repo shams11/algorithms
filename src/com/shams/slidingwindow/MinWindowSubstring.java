@@ -12,8 +12,8 @@ public class MinWindowSubstring {
   public static void main(String[] args) {
 //    Input: s = "ADOBECODEBANC", t = "ABC"
 //    Output: "BANC"
-    String s = "a";
-    String t = "a";
+    String s = "ADOBECODEBANC";
+    String t = "ABC";
     System.out.println(minWindow(s, t));
   }
 
