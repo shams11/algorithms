@@ -28,6 +28,9 @@ public class MaxPathSumBetweenLeafNodes {
     System.out.println(maxPathSum(root));
   }
 
+  /***
+   * This is same as diameter of a binary tree
+   * */
   public static int maxPathSum(UtilityHelper.Node root) {
     if (root == null) {
       return 0;
