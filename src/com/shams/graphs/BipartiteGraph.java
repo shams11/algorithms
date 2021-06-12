@@ -14,6 +14,9 @@ import java.util.Map;
 import java.util.Queue;
 
 /***
+ * A bipartite graph, also called a bigraph, is a set of graph vertices decomposed into two disjoint
+ * sets such that no two graph vertices within the same set are adjacent.
+ *
  * Algorithm
  * ---------
  * 1. Build Graph (build Map)
@@ -96,7 +99,6 @@ public class BipartiteGraph {
           colours[u] = 1 - colours[s]; // give diff colour to neighbour
           q.add(u);
         }
-
       }
     }
     return true;
