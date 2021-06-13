@@ -50,8 +50,8 @@ public class ReconstructItinerary {
   }
 
   private static void dfs(String s) {
-    PriorityQueue<String> pq = graph.get(s);
-    while(pq != null && !pq.isEmpty()) {
+    PriorityQueue<String> pq = graph.getOrDefault(s, new PriorityQueue<>());
+    while(!pq.isEmpty()) {
       dfs(pq.poll());
     }
     list.addFirst(s);
