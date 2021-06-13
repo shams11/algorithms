@@ -39,7 +39,7 @@ public class MaxAreaOfIsland {
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
         if (grid[i][j] == 1) {
-          int curCount = getMaxAreaIsland(grid, i, j, m, n);
+          int curCount = getIslandCount(grid, i, j, m, n);
           max = Math.max(curCount, max);
         }
       }
@@ -55,6 +55,19 @@ public class MaxAreaOfIsland {
   };
   static Queue<Integer> q = new LinkedList<>();
 
+  // DFS
+  static int getIslandCount(int[][] grid, int i, int j, int m, int n) {
+    if(i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == 0) return 0;
+
+    grid[i][j] = 0;
+    int left = getIslandCount(grid, i, j - 1, m, n);
+    int right = getIslandCount(grid, i, j + 1, m, n);
+    int top = getIslandCount(grid, i - 1, j, m, n);
+    int down = getIslandCount(grid, i + 1, j, m, n);
+    return left + right + top + down + 1;
+  }
+
+  // BFS
   private static int getMaxAreaIsland(int[][] grid, int i, int j, int m, int n) {
     int count = 1;
     q.add(i * n + j);
