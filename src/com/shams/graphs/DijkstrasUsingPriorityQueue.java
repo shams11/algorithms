@@ -13,10 +13,31 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class DijkstrasUsingPriorityQueue {
+
+  static class Node {
+    int node;
+    int cost;
+
+    public Node(int node, int cost) {
+      this.node = node;
+      this.cost = cost;
+    }
+  }
+
+  static Map<Integer, List<Node>> map = new HashMap<>();
+
   public static void main(String[] args) {
     int v = 9;
     int source = 0;
     dijkstras(source, v);
+  }
+
+  private static void buildGraph(int v) {
+    for (int i = 0; i < v; i++) {
+      if (!map.containsKey(i)) {
+        map.put(i, new ArrayList<>());
+      }
+    }
   }
 
   static PriorityQueue<Node> pq = new PriorityQueue<>((e1, e2) -> e1.cost - e2.cost);
@@ -30,8 +51,13 @@ public class DijkstrasUsingPriorityQueue {
     dist = new int[v];
     // initialize distance with max value
     Arrays.fill(dist, Integer.MAX_VALUE);
-    pq.add(new Node(src, 0));
     dist[src] = 0;
+    bfs(src);
+    printDijkstra(dist, src, v);
+  }
+
+  private static void bfs(int src) {
+    pq.add(new Node(src, 0));
     visited[src] = true;
     while (!pq.isEmpty()) {
       Node cur = pq.poll();
@@ -47,7 +73,6 @@ public class DijkstrasUsingPriorityQueue {
       }
       visited[cur.node] = true;
     }
-    printDijkstra(dist, src, v);
   }
 
   public static void printDijkstra(int[] distance, int sourceVertex, int vertices) {
@@ -108,25 +133,5 @@ public class DijkstrasUsingPriorityQueue {
 //    map.get(4).add(new Node(2, 5));
 //    map.get(5).add(new Node(4, 7));
 //    map.get(5).add(new Node(3, 6));
-  }
-
-  static class Node {
-    int node;
-    int cost;
-
-    public Node(int node, int cost) {
-      this.node = node;
-      this.cost = cost;
-    }
-  }
-
-  static Map<Integer, List<Node>> map = new HashMap<>();
-
-  private static void buildGraph(int v) {
-    for (int i = 0; i < v; i++) {
-      if (!map.containsKey(i)) {
-        map.put(i, new ArrayList<>());
-      }
-    }
   }
 }

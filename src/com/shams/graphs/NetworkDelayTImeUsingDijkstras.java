@@ -12,20 +12,26 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class NetworkDelayTImeUsingDijkstras {
-  public static void main(String[] args) {
-//    int[][] graph = {
-//        {2, 1, 1},
-//        {2, 3, 1},
-//        {3, 4, 1}
-//    };
-//    int n = 4, k = 2;
 
+  /***
+   * This is almost same as cheapest flights
+   * https://leetcode.com/problems/cheapest-flights-within-k-stops/
+   * */
+  public static void main(String[] args) {
     int[][] graph = {
-        {1, 2, 1},
-        {2, 3, 2},
-        {1, 3, 4}
+        {2, 1, 1},
+        {2, 3, 1},
+        {3, 1, 4},
+        {3, 4, 1}
     };
-    int n = 3, k = 1;
+    int n = 4, k = 2;
+
+//    int[][] graph = {
+//        {1, 2, 1},
+//        {2, 3, 2},
+//        {1, 3, 4}
+//    };
+//    int n = 3, k = 1;
     System.out.println(networkDelayTime(graph, n, k));
   }
 
@@ -45,7 +51,6 @@ public class NetworkDelayTImeUsingDijkstras {
       }
       minTime = Math.max(minTime, dist[i]);
     }}
-
     return minTime;
   }
 
@@ -58,14 +63,12 @@ public class NetworkDelayTImeUsingDijkstras {
     }
   }
 
-  static List<Integer> result = new ArrayList<>();
   static Map<Integer, List<int[]>> map = new HashMap<>();
   static PriorityQueue<Node> pq = new PriorityQueue<>((e1, e2) -> e1.cost - e2.cost);
 
   static class Node {
     int val;
     int cost;
-
     public Node(int val, int cost) {
       this.val = val;
       this.cost = cost;

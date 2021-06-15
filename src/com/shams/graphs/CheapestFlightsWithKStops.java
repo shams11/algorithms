@@ -13,6 +13,11 @@ import java.util.PriorityQueue;
 
 public class CheapestFlightsWithKStops {
 
+  /***
+   * This is almost same as Network delay time
+   * https://leetcode.com/problems/network-delay-time/
+   * */
+
   public static void main(String[] args) {
 //    int n = 3, src = 0, dst = 2, k = 1;
 //    int[][] flights = {
