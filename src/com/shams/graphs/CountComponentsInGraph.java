@@ -33,7 +33,7 @@ public class CountComponentsInGraph {
      * and thus will not appear together in edges.
      *
      * */
-    int n = 5;
+    int n = 6;
 //    int[][] edges = {
 //        {0, 1},
 //        {1, 2},
@@ -42,11 +42,11 @@ public class CountComponentsInGraph {
 
     int[][] edges = {
         {0, 1},
-        {1, 2},
-        {2, 3},
-        {3, 4}
+        {0, 2},
+        {0, 3},
+        {1, 2}
     };
-    // Output : 1
+    // Output : 3
     System.out.println(countComponents(n, edges));
   }
 

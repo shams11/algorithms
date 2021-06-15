@@ -12,8 +12,8 @@ import java.util.Map;
 
 public class MinOperationsToMakeNetworkConnected {
   public static void main(String[] args) {
-    int n = 4;
-    int[][] graph = {{0, 1}, {0, 2}, {1, 2}};
+    int n = 6;
+    int[][] graph = {{0, 1}, {0, 2}, {0,3}, {1, 2}, {1, 3}};
 //    Input: n = 4, connections = [[0,1],[0,2],[1,2]]
 //    Output: 1
 //    Explanation: Remove cable between computer 1 and 2 and place between computers 1 and 3.
@@ -26,6 +26,7 @@ public class MinOperationsToMakeNetworkConnected {
 
   public static int makeConnected(int n, int[][] connections) {
     // if # of edges less than equal to n-2, then not enough cables
+    // max diff should be atmost 1.
     if (connections.length < n - 1) return -1;
 
     buildGraph(n, connections);
@@ -39,6 +40,8 @@ public class MinOperationsToMakeNetworkConnected {
     }
     // Redundant edges = Total edges - (( n-1) - (c - 1)) // c : # no of components in the graph
     // Total edges = connections.length
+    // c components required (n-1) edges. i.e 2 components required 1 edge.
+    // so reduce required edges for the existing components. Remaining will be redundant edges
     int redundant = connections.length - ((n - 1) - (components - 1));
     if (redundant >= (components - 1)) {
       return components - 1;
