@@ -5,10 +5,8 @@
 
 package com.shams.strings;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -16,7 +14,8 @@ import java.util.PriorityQueue;
 public class TopKFrequentWords {
   public static void main(String[] args) {
 
-    String[] s = {"i", "love", "leetcode", "i", "love", "leetcode", "leetcode", "shams", "shams", "shams", "shams"};
+    String[] s = {"i", "love", "leetcode", "i", "love",
+        "leetcode", "leetcode", "shams", "shams", "shams", "shams"};
     int k = 2;
     List<String> result = topKFrequent1(s, k);
     System.out.println(result);
@@ -37,17 +36,16 @@ public class TopKFrequentWords {
       // else order by frequency
       return frequency1 - frequency2;
     });
-    for (Map.Entry<String, Integer> e : map.entrySet()) {
-      pq.add(e.getKey());
+    for (String e : map.keySet()) {
+      pq.add(e);
       if (pq.size() > k) {
         pq.poll();
       }
     }
-    List<String> result = new ArrayList<>();
+    LinkedList<String> result = new LinkedList<>();
     while (!pq.isEmpty()) {
-      result.add(pq.poll());
+      result.addFirst(pq.poll());
     }
-    Collections.reverse(result);
     return result;
   }
 }
