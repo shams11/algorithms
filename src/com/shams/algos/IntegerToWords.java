@@ -33,6 +33,7 @@ public class IntegerToWords {
     int index = 0;
     while (num > 0) {
       if(num % 1000 != 0) {
+        // if number is below 1000, come here
         StringBuilder tmp = new StringBuilder();
         buildBelowThousand(tmp, num % 1000);
         sb.insert(0, tmp.append(ABOVE_THOUSAND[index++])). append(" ");
