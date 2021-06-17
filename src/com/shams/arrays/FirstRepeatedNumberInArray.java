@@ -1,29 +1,23 @@
 package com.shams.arrays;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class FirstRepeatedNumberInArray {
   public static void main(String[] args) {
 
-    int[] a = {7, 5, 2, 1, 1};
+    int[] a = {7, 5, 2, 7, 1, 1};
     int firstRepeatedElement = getFirstRepeatedNumber(a);
     System.out.println(firstRepeatedElement);
 
   }
 
   private static int getFirstRepeatedNumber(int[] a) {
-    Map<Integer, Integer> map = new LinkedHashMap<>();
-    for (int item : a) {
-      map.put(item, map.getOrDefault(item, 0) + 1);
+    Set<Integer> set = new HashSet<>();
+    for (int i : a) {
+      if(set.contains(i)) return i;
+      set.add(i);
     }
-    System.out.println(map);
-    System.out.println();
-    for (int value : a) {
-      if (map.get(value) > 1) {
-        return value;
-      }
-    }
-    return a[0];
+    return -1;
   }
 }
