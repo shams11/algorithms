@@ -27,10 +27,10 @@ public class FindKDiffPairs {
       map.put(i, map.getOrDefault(i, 0) + 1);
     }
 
-    for (Map.Entry<Integer, Integer> e : map.entrySet()) {
-      if (k == 0 && map.get(e.getKey()) > 1) {
+    for (Integer e : map.keySet()) {
+      if (k == 0 && map.get(e) > 1) {
         count++;
-      } else if (k > 0 && map.containsKey(e.getKey() + k)) {
+      } else if (k > 0 && map.containsKey(e + k)) {
         count++;
       }
     }
