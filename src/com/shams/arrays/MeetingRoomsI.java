@@ -35,10 +35,13 @@ public class MeetingRoomsI {
     }
     Arrays.sort(start);
     Arrays.sort(end);
-    for(int i = 1; i < start.length; i++) {
-      if(start[i] < end[i-1]) {
+    int i = 1, j = 0;
+    while(i < start.length && j < end.length) {
+      if (start[i] < end[j]) {
         return false;
       }
+      i++;
+      j++;
     }
     return true;
   }

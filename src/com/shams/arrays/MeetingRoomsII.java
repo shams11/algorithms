@@ -1,5 +1,6 @@
 /**
  * https://leetcode.com/problems/meeting-rooms-ii/
+ * https://www.youtube.com/watch?v=FdzJmTCVyJU&ab_channel=NeetCodeNeetCode
  */
 
 package com.shams.arrays;
@@ -18,11 +19,11 @@ public class MeetingRoomsII {
   }
 
   public static void main(String[] args) {
-//    Interval[] intervals = {
-//        new Interval(0, 30),
-//        new Interval(5, 10),
-//        new Interval(15, 20)
-//    };
+    Interval[] intervals = {
+        new Interval(0, 30),
+        new Interval(5, 10),
+        new Interval(15, 20)
+    };
 
 //    Interval[] intervals = {
 //        new Interval(7, 10),
@@ -30,14 +31,14 @@ public class MeetingRoomsII {
 //    };
 
 
-    Interval[] intervals = {
-        new Interval(900, 910),
-        new Interval(940, 1200),
-        new Interval(950, 1120),
-        new Interval(1100, 1130),
-        new Interval(1500, 1900),
-        new Interval(1800, 2000)
-    };
+//    Interval[] intervals = {
+//        new Interval(900, 910),
+//        new Interval(940, 1200),
+//        new Interval(950, 1120),
+//        new Interval(1100, 1130),
+//        new Interval(1500, 1900),
+//        new Interval(1800, 2000)
+//    };
 
     System.out.println(minMeetingRooms(intervals));
   }
