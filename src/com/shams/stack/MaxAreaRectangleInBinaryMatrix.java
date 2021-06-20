@@ -44,7 +44,7 @@ public class MaxAreaRectangleInBinaryMatrix {
     for (int j = 0; j < m; j++) {
       b[j] = a[0][j];
     }
-    int result = getMaxAreaHologram(a[0]);
+    int result = getMaxAreaHologram(b);
     for (int i = 1; i < n; i++) {
       for (int j = 0; j < m; j++) {
         if (a[i][j] == 0) {
