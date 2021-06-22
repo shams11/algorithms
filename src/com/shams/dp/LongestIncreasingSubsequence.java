@@ -6,18 +6,19 @@
 
 package com.shams.dp;
 
+import java.util.Arrays;
+
 public class LongestIncreasingSubsequence {
 
   public static void main(String[] args) {
-    int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
+    // int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
+    int[] nums = {5, 8, 7, 1 , 9};
     System.out.println(lengthOfLIS(nums));
   }
   public static int lengthOfLIS(int[] nums) {
     int n = nums.length;
     int[] lis = new int[n];
-    for(int i = 0; i < n; i++) {
-      lis[i] = 1;
-    }
+    Arrays.fill(lis, 1);
     for(int i = 1; i < n; i++) {
       for(int j = 0; j < i; j++) {
         if(nums[i] > nums[j] && lis[i] <= lis[j]) {
