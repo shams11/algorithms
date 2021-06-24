@@ -4,7 +4,9 @@
  * */
 
 package com.shams.trees.binarytrees;
-
+/***
+ * SubTree with all deepest nodes is same as LCA of deepest nodes (both are same questions)
+ * */
 public class LCAOfDeepestLeaves {
   public static void main(String[] args) {
     TreeNode root = new TreeNode(3);
