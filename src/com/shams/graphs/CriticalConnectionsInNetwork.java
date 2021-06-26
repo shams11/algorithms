@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TarjansFindBridges {
+public class CriticalConnectionsInNetwork {
   public static void main(String[] args) {
     int[][] graph = {
         {0, 2},
@@ -45,6 +45,12 @@ public class TarjansFindBridges {
   static int[] low = new int[v];
   static int[] parent = new int[v];
 
+  // Condition for bridge - From a given node/node' sub-graph, if there is no back-edge to its parent node OR
+  // any of the ancestors of the parent node, then the edge connecting to this node and
+  // its parent is a bridge
+
+  // back-edge - is an edge between the node and one of the ancestor of its parent
+  // ex : 0 - 1 - 2 : if there is edge from 2 - 0, then this edge is called back edge
   private static List<List<Integer>> findBridges(int n, int[][] graph) {
     buildGraph(n, graph);
     System.out.println(map);
@@ -72,8 +78,12 @@ public class TarjansFindBridges {
       if (disc[v] == -1) {
         parent[v] = u;
         dfs(v);
+        // is there is a back-edge from descendants of u ?
+        // if there was a back-edge, then this low[v] would have been update in else if condition
+        // before backtracking to its parent
         low[u] = Math.min(low[u], low[v]);
 
+        // is this a critical edge/ bridge ?
         if (low[v] > disc[u]) {
           List<Integer> list = new ArrayList<>();
           list.add(u);
