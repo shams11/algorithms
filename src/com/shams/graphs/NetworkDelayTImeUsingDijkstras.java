@@ -1,7 +1,8 @@
 /**
  * https://leetcode.com/problems/network-delay-time/submissions/
  * https://www.youtube.com/watch?v=YHx6r9pM5e0&list=PLEJXowNB4kPzByLnnFYNSCoqtFz0VKLk5&index=31&ab_channel=TECHDOSE
- * */
+ */
+
 package com.shams.graphs;
 
 import java.util.ArrayList;
@@ -43,15 +44,17 @@ public class NetworkDelayTImeUsingDijkstras {
     if (!map.containsKey(k)) {
       return -1;
     }
-    bfs(k, visited, dist, n);
-    int minTime = Integer.MIN_VALUE;
-    for(int i = 1; i < dist.length; i++) { {
-      if(dist[i] == Integer.MAX_VALUE) {
-        return -1;
+    bfs(k, dist);
+    int timeToSendSignalToAllNodes = Integer.MIN_VALUE;
+    for (int i = 1; i < dist.length; i++) {
+      {
+        if (dist[i] == Integer.MAX_VALUE) {
+          return -1;
+        }
+        timeToSendSignalToAllNodes = Math.max(timeToSendSignalToAllNodes, dist[i]);
       }
-      minTime = Math.max(minTime, dist[i]);
-    }}
-    return minTime;
+    }
+    return timeToSendSignalToAllNodes;
   }
 
   private static void buildGraph(int[][] times) {
@@ -69,15 +72,15 @@ public class NetworkDelayTImeUsingDijkstras {
   static class Node {
     int val;
     int cost;
+
     public Node(int val, int cost) {
       this.val = val;
       this.cost = cost;
     }
   }
 
-  private static void bfs(int src, boolean[] visited, int[] dist, int n) {
+  private static void bfs(int src, int[] dist) {
     pq.add(new Node(src, 0));
-    visited[src] = true;
     dist[src] = 0;
     while (!pq.isEmpty()) {
       Node cur = pq.poll();
@@ -85,14 +88,14 @@ public class NetworkDelayTImeUsingDijkstras {
       List<int[]> neighbors = map.getOrDefault(cur.val, new ArrayList<>());
       for (int[] v : neighbors) {
         int dstNode = v[0];
-          int timeForDstNode = v[1];
-          int newCost = cur.cost+ timeForDstNode;
-          if (newCost < dist[dstNode]) {
-            dist[dstNode] = newCost;
-            pq.add(new Node(dstNode, newCost));
-          }
+        int timeForDstNode = v[1];
+        int newCost = cur.cost + timeForDstNode;
+        if (newCost < dist[dstNode]) {
+          dist[dstNode] = newCost;
+          pq.add(new Node(dstNode, newCost));
         }
       }
     }
   }
+}
 
