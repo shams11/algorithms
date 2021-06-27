@@ -7,9 +7,7 @@ package com.shams.graphs;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Map;
-import java.util.Queue;
 import java.util.Set;
 
 public class MakingLargeIsland {
@@ -28,6 +26,10 @@ public class MakingLargeIsland {
     System.out.println(largestIsland(a));
   }
 
+  static int[][] DIRECTIONS = {
+      {0, -1}, {0, 1}, {-1, 0}, {1, 0}
+  };
+
   // Optimized approach
   public static int largestIsland(int[][] a) {
     if (a == null || a.length == 0) return 0;
@@ -45,7 +47,6 @@ public class MakingLargeIsland {
         }
       }
     }
-
 
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
@@ -77,54 +78,5 @@ public class MakingLargeIsland {
     int up = getIslandCount(a, -1 + i, j, islandId);
     int down = getIslandCount(a, 1 + i, j, islandId);
     return left + right + up + down + 1;
-  }
-
-  // --------------------------------------------------------------------------------------------
-  // my 1st approach
-  public static int largestIsland1(int[][] grid) {
-    if (grid == null || grid.length == 0) return 0;
-
-    int m = grid.length, n = grid[0].length;
-    int count = Integer.MIN_VALUE;
-    for (int i = 0; i < m; i++) {
-      for (int j = 0; j < n; j++) {
-        if (grid[i][j] == 0) {
-          grid[i][j] = 1;
-          int curCount = calcIslandArea(grid, i, j, m, n);
-          count = Math.max(count, curCount);
-          grid[i][j] = 0;
-        }
-      }
-    }
-    return count == Integer.MIN_VALUE ? (m * n) : count;
-  }
-
-  static int[][] DIRECTIONS = {
-      {0, -1}, {0, 1}, {-1, 0}, {1, 0}
-  };
-
-  static Queue<Integer> q = new LinkedList<>();
-
-  static int calcIslandArea(int[][] grid, int i, int j, int m, int n) {
-    int count = 0;
-    int[] visited = new int[m * n];
-    q.add(i * n + j);
-    visited[i * n + j] = 1;
-    count++;
-    while (!q.isEmpty()) {
-      int index = q.poll();
-      int row = index / n;
-      int col = index % n;
-      for (int[] direction : DIRECTIONS) {
-        int x = direction[0] + row;
-        int y = direction[1] + col;
-        if (x > -1 && x < m && y > -1 && y < n && visited[x * n + y] == 0 && grid[x][y] == 1) {
-          visited[x * n + y] = 1;
-          q.add(x * n + y);
-          count++;
-        }
-      }
-    }
-    return count;
   }
 }
