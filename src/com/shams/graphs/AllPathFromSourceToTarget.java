@@ -29,7 +29,7 @@ public class AllPathFromSourceToTarget {
 
   public static List<List<Integer>> allPathsSourceTarget(int[][] graph) {
     Queue<List<Integer>> q = new LinkedList<>();
-    q.add(Arrays.asList(0));
+    q.add(List.of(0));
     while (!q.isEmpty()) {
       List<Integer> curList = q.poll();
       Integer lastNode = curList.get(curList.size() - 1);
