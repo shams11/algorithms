@@ -86,18 +86,18 @@ public class BipartiteGraph {
 
   // There are 2 colours {0, 1}. if the colour of a cur vertex is 1,
   // then 1 - colour[curVertex] will diff colour to its neighbour
-  static boolean isBiPartite(int s, int N, Map<Integer, List<Integer>> map, int[] colours) {
-    colours[s] = 1;
-    q.add(s);
+  static boolean isBiPartite(int startNode, int N, Map<Integer, List<Integer>> map, int[] colours) {
+    colours[startNode] = 1;
+    q.add(startNode);
     while (!q.isEmpty()) {
-      s = q.poll();
-      for (Integer u : map.getOrDefault(s, new ArrayList<>())) {
-        if (colours[u] == colours[s]) {
+      int parent = q.poll();
+      for (Integer neighbor : map.getOrDefault(parent, new ArrayList<>())) {
+        if (colours[neighbor] == colours[parent]) {
           return false;
         }
-        if (colours[u] == -1) {
-          colours[u] = 1 - colours[s]; // give diff colour to neighbour
-          q.add(u);
+        if (colours[neighbor] == -1) {
+          colours[neighbor] = 1 - colours[parent]; // give diff colour to neighbour
+          q.add(neighbor);
         }
       }
     }
