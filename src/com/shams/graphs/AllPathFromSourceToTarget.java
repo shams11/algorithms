@@ -47,35 +47,3 @@ public class AllPathFromSourceToTarget {
     return result;
   }
 }
-
-
-/*
-  // My initial approach didn't work
-   List<List<Integer>> result = new ArrayList<>();
-    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
-        for(int n : graph[0]) {
-            List<Integer> list = new ArrayList<>();
-            list.add(0);
-            dfs(n, n, graph, list);
-            //result.add(list);
-
-        }
-        return result;
-    }
-
-    void dfs(int u, int parentNode, int[][] graph, List<Integer> list) {
-        list.add(u);
-        if(u == graph.length-1) {
-            result.add(list);
-            return;
-        }
-        for(int n : graph[u]) {
-            dfs(n, parentNode, graph, list);
-            if(u == parentNode) {
-                list = new ArrayList<>();
-                list.add(0);
-                list.add(parentNode);
-            }
-        }
-    }
-  * */
