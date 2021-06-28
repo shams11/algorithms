@@ -4,7 +4,7 @@
 
 package com.shams.dp;
 
-public class UniquePathsWithObstacles {
+public class UniquePathsIIWithObstacles {
   public static void main(String[] args) {
 //    int[][] a = {
 //        {0, 1},
