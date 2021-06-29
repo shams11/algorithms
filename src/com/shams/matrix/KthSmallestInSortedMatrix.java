@@ -44,6 +44,8 @@ public class KthSmallestInSortedMatrix {
     for (int i = 0; i < k - 1; i++) {
       Node cur = pq.poll();
       if (cur.x == m - 1) continue;
+      // replace the element from the next row and same column.
+      // i.e the element below the popped element in the matrix
       pq.add(new Node(cur.x + 1, cur.y, matrix[cur.x + 1][cur.y]));
     }
     return pq.poll().val;

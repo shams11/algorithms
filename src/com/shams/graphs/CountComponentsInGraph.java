@@ -5,7 +5,11 @@
 
 package com.shams.graphs;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class CountComponentsInGraph {
@@ -33,21 +37,57 @@ public class CountComponentsInGraph {
      * and thus will not appear together in edges.
      *
      * */
-    int n = 6;
+    int n = 2;
+    int[][] edges = {{1, 0}};
 //    int[][] edges = {
 //        {0, 1},
 //        {1, 2},
+//        {2, 3},
 //        {3, 4}
 //    };
 
-    int[][] edges = {
-        {0, 1},
-        {0, 2},
-        {0, 3},
-        {1, 2}
-    };
+//    int[][] edges = {
+//        {0, 1},
+//        {0, 2},
+//        {0, 3},
+//        {1, 2}
+//    };
     // Output : 3
-    System.out.println(countComponents(n, edges));
+    //System.out.println(countComponents(n, edges));
+    System.out.println(countComponents2(n, edges));
+  }
+
+  private static int countComponents2(int n, int[][] edges) {
+    boolean[] visited = new boolean[n];
+    buildGraph(n, edges);
+    int components = 0;
+    for (int i = 0; i < n; i++) {
+      if (!visited[i]) {
+        components++;
+        dfs(i, visited);
+      }
+    }
+    return components;
+  }
+
+  private static void dfs(int u, boolean[] visited) {
+    visited[u] = true;
+    for (Integer n : map.getOrDefault(u, new ArrayList<>())) {
+      if (!visited[n]) {
+        dfs(n, visited);
+      }
+    }
+  }
+
+  static Map<Integer, List<Integer>> map = new HashMap<>();
+  private static void buildGraph(int n, int[][] edges) {
+    for(int i = 0; i < n; i++) {
+      map.put(i, new ArrayList<>());
+    }
+    for(int[] e : edges) {
+      map.get(e[0]).add(e[1]);
+      map.get(e[1]).add(e[0]);
+    }
   }
 
   private static int countComponents(int n, int[][] edges) {
