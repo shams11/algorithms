@@ -28,6 +28,8 @@ public class FindKDiffPairs {
     }
 
     for (Integer e : map.keySet()) {
+      // This condition is for handling duplicate elements
+      // ex : if k = 0 and 2 1's are there, then increment the count
       if (k == 0 && map.get(e) > 1) {
         count++;
       } else if (k > 0 && map.containsKey(e + k)) {

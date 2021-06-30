@@ -4,6 +4,8 @@
  * */
 package com.shams.dp;
 
+import java.util.Arrays;
+
 public class TargetSum {
   public static void main(String[] args) {
     int[] a = {1, 1, 1, 1, 1};
@@ -13,9 +15,8 @@ public class TargetSum {
 
   private static int countOfSubSetsEithGivenDiff(int[] a, int diff, int n) {
     int totalSum = 0;
-    for (int i = 0; i < n; ++i) {
-      totalSum += a[i];
-    }
+
+    totalSum = Arrays.stream(a).sum();
     int sum = (diff + totalSum) / 2;
     return countSubsetWithGiveSum(a, sum, n);
   }
