@@ -2,12 +2,12 @@
  * https://leetcode.com/problems/subsets/discuss/1031486/Javaor-Recursion-or-100
  */
 
-package com.shams.dp;
+package com.shams.recursion;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllPossibleSubsets {
+public class AllPossibleSubsetsBactracking {
   public static void main(String[] args) {
     int[] nums = {1, 2, 3};
     List<List<Integer>> result = subsets(nums);
