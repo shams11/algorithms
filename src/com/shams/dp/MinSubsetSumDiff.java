@@ -5,6 +5,7 @@
 package com.shams.dp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MinSubsetSumDiff {
@@ -15,10 +16,7 @@ public class MinSubsetSumDiff {
   }
 
   private static int findMinSubsetDiff(int[] a, int n) {
-    int sum = 0;
-    for (int i = 0; i < n; ++i) {
-      sum += a[i];
-    }
+    int sum = Arrays.stream(a).sum();
     boolean[][] t = new boolean[n + 1][sum + 1];
     for (int i = 0; i < n + 1; i++) {
       for (int j = 0; j < sum + 1; j++) {
@@ -43,7 +41,7 @@ public class MinSubsetSumDiff {
 
     // s1 will lie in the first half of the sum's range
     // if 10 is the range, 1-4 is s1 and 6-9 is s2
-    // figure out which elemets in the range are contributing to sum from the last row of the matrix t
+    // figure out which elements in the range are contributing to sum from the last row of the matrix
     int min = Integer.MAX_VALUE;
     List<Integer> lastRowInMatrix = new ArrayList<>();
     for (int j = sum / 2; j >= 0; j--) {
