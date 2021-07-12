@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
-public class RemoveInvalidParenthesis {
+public class MinRemoveInvalidParenReturnAllResults {
   public static void main(String[] args) {
     String s = "(a)())()";
     //System.out.println(isValid("("));
