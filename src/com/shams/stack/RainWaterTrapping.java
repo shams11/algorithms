@@ -16,8 +16,8 @@ import java.util.Stack;
 public class RainWaterTrapping {
 
   public static void main(String[] args) {
-    //int[] heights = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-    int[] heights = {4, 2, 0, 3, 2, 5};
+    int[] heights = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    //int[] heights = {4, 2, 0, 3, 2, 5};
     int traps = trap(heights);
    // System.out.println( "trap 1 : " + traps);
 
@@ -43,11 +43,7 @@ public class RainWaterTrapping {
     for (int i = 0; i < n; i++) {
       water[i] = Math.min(maxOnLeft[i], maxOnRight[i]) - a[i];
     }
-    int sum = 0;
-    for(int i = 0; i < n; i++) {
-      sum += water[i];
-    }
-    return sum;
+    return Arrays.stream(water).sum();
   }
 
   private static int trap(int[] a) {
