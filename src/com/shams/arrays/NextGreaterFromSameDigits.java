@@ -1,5 +1,6 @@
 /***
  * https://www.geeksforgeeks.org/find-next-greater-number-set-digits/
+ * https://leetcode.com/problems/next-permutation/
  * */
 
 package com.shams.arrays;
