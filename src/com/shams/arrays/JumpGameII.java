@@ -20,7 +20,6 @@ public class JumpGameII {
         end = farthest;
         jumps++;
       }
-
     }
     return jumps;
   }

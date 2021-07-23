@@ -9,8 +9,44 @@ import java.util.Map;
 import java.util.Objects;
 
 public class TicTacToe {
+
+  public static class Pair {
+    int player;
+    int rowOrCol;
+
+    Pair(int player, int rowOrCol) {
+      this.player = player;
+      this.rowOrCol = rowOrCol;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+      if (o == this) return true;
+      if (!(o instanceof Pair)) {
+        return false;
+      }
+      Pair pair = (Pair) o;
+      return player == pair.player && rowOrCol == pair.rowOrCol;
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(player, rowOrCol);
+    }
+
+  }
+
+  static private Map<Pair, Integer> rowCount;
+  static private Map<Pair, Integer> colCount;
+  static private Map<Pair, Integer> diagCount;
+  static int n = 3;
+
   public static void main(String[] args) {
 
+//    [1, _ , 1]
+//    [2, 2, _]
+//    [1, 1, 1]
     rowCount = new HashMap<>();
     colCount = new HashMap<>();
     diagCount = new HashMap<>();
@@ -45,43 +81,11 @@ public class TicTacToe {
     }
   }
 
-  public static class Pair {
-    int player;
-    int rowOrCol;
-
-    Pair(int player, int rowOrCol) {
-      this.player = player;
-      this.rowOrCol = rowOrCol;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-
-      if (o == this) return true;
-      if (!(o instanceof Pair)) {
-        return false;
-      }
-      Pair pair = (Pair) o;
-      return player == pair.player && rowOrCol == pair.rowOrCol;
-    }
-
-    @Override
-    public int hashCode() {
-      return Objects.hash(player, rowOrCol);
-    }
-
-  }
-
-  static private Map<Pair, Integer> rowCount;
-  static private Map<Pair, Integer> colCount;
-  static private Map<Pair, Integer> diagCount;
-  static int n = 3;
-
   public static int move(int row, int col, int player) {
     if (update(new Pair(player, row), rowCount)) {
       return player;
     }
-    if (update(new Pair(player, row), colCount)) {
+    if (update(new Pair(player, col), colCount)) {
       return player;
     }
     if (row == col) {
