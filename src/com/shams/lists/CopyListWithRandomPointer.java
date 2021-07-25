@@ -22,41 +22,45 @@ public class CopyListWithRandomPointer {
     }
   }
 
+  // crate new nodes and populate in between original nodes
   public static Node copyRandomList(Node head) {
-    if (head == null) {
-      return null;
-    }
+    if (head == null) return null;
+
     Node cur = head;
-    Node nextNode = null;
-    // create new Node and put this node in between the nodes of original list
+    Node newCopyNode;
+    Node nextOriginalNode = null;
+    // crate and populate new nodes of copy list in between nodes of original list
     while (cur != null) {
-      Node newNode = new Node(cur.val);
-      nextNode = cur.next;
-      cur.next = newNode;
-      newNode.next = nextNode;
-      cur = nextNode;
+      newCopyNode = new Node(cur.val);
+      nextOriginalNode = cur.next;
+
+      cur.next = newCopyNode;
+      newCopyNode.next = nextOriginalNode;
+      cur = nextOriginalNode;
     }
+
+    // link random pointers of copy list
     cur = head;
-    // populate random pointer
     while (cur != null && cur.next != null) {
       if (cur.random != null) {
         cur.next.random = cur.random.next;
       }
       cur = cur.next.next;
     }
-    cur = head;
+
+    // segregate copy list and original list
     Node root = new Node(-1);
-    Node copyCur = root;
-    Node nextOriginalNode, copy;
+    Node copy, copyCur = root;
+    cur = head;
     while (cur != null && cur.next != null) {
       nextOriginalNode = cur.next.next;
 
-      // fix copy list pointers
+      // fix copy list
       copy = cur.next;
       copyCur.next = copy;
       copyCur = copy;
 
-      // fix original list pointers
+      // fix original list
       cur.next = nextOriginalNode;
       cur = nextOriginalNode;
     }
