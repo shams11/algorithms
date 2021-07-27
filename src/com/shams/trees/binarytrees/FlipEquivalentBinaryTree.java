@@ -1,5 +1,6 @@
 /**
  * https://leetcode.com/problems/flip-equivalent-binary-trees/submissions/
+ * https://leetcode.com/problems/flip-equivalent-binary-trees/discuss/1363398/Clean-Java-Solution
  */
 
 package com.shams.trees.binarytrees;
