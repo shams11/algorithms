@@ -41,6 +41,7 @@ public class VerticalOrderTraversal {
     root.right.left.right = new TreeNode(2);
 
     System.out.println(verticalOrder(root));
+    // Output : [[3, 0, 1], [9, 5], [4], [8, 2], [7]]
   }
 
   static List<List<Integer>> verticalOrder(TreeNode root) {

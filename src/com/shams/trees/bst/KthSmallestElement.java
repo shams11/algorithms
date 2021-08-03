@@ -19,26 +19,26 @@ public class KthSmallestElement {
     UtilityHelper.insertNodeInBST(root, 4);
     UtilityHelper.insertNodeInBST(root, 1);
     int k = 5;
-    System.out.println(k + "th smallest element is : " + kthSmallest(root, k));
+    System.out.println(k + "th smallest element is : " + kthSmallestEle(root, k));
     System.out.println(k + "th largest element is : " + kthLargestEle(root, k));
   }
 
   static int count = 0;
 
-  public static int kthSmallest(UtilityHelper.Node root, int k) {
+  public static int kthSmallestEle(UtilityHelper.Node root, int k) {
     count = k;
-    return inorder(root);
+    return kthSmallest(root);
   }
 
-  private static int inorder(UtilityHelper.Node root) {
+  private static int kthSmallest(UtilityHelper.Node root) {
     if (root == null) return 0;
-    int left = inorder(root.left);
+    int left = kthSmallest(root.left);
     if (left != 0) return left;
     count--;
     if (count == 0) {
       return root.val;
     }
-    return inorder(root.right);
+    return kthSmallest(root.right);
   }
 
   private static int kthLargestEle(UtilityHelper.Node root, int k) {
