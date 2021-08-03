@@ -40,10 +40,9 @@ public class KDistanceNodes {
 
     int k = 2;
     System.out.println(distanceK(root, root.left, k));
-
   }
 
-  private static void dfs(
+  private static void populateMapUsingDFS(
       TreeNode node, TreeNode parent, Map<TreeNode, TreeNode> nodeParentMap) {
 
     if(node == null) {
@@ -52,8 +51,8 @@ public class KDistanceNodes {
     if(parent != null) {
       nodeParentMap.put(node, parent);
     }
-    dfs(node.left, node, nodeParentMap);
-    dfs(node.right, node, nodeParentMap);
+    populateMapUsingDFS(node.left, node, nodeParentMap);
+    populateMapUsingDFS(node.right, node, nodeParentMap);
   }
 
   private static void addNodeToQueue(TreeNode node, Queue<TreeNode> q, Set<TreeNode> visited) {
@@ -68,7 +67,7 @@ public class KDistanceNodes {
 
     List<Integer> result = new ArrayList<>();
     Map<TreeNode, TreeNode> nodeParentMap = new HashMap<>();
-    dfs(root, null, nodeParentMap);
+    populateMapUsingDFS(root, null, nodeParentMap);
 
     // BFS
     Queue<TreeNode> q = new LinkedList<>();
