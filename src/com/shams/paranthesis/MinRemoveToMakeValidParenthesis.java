@@ -14,7 +14,7 @@ public class MinRemoveToMakeValidParenthesis {
   }
 
   public static String minRemoveToMakeValid(String s) {
-    if(s == null || s == "") return "";
+    if(s == null || s.equals("")) return "";
 
     int count = 0;
     StringBuilder sb = new StringBuilder();
