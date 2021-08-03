@@ -23,12 +23,17 @@ public class MinRemoveToMakeValidParenthesis {
       if(c == '(') {
         count++;
       } else if (c == ')'){
+        // don't add additional ')' to sb
         if(count == 0) continue;
 
         count--;
       }
       sb.append(c);
     }
+    System.out.println(sb);
+
+    // if the inout is : "))((", then below code will remove additional ')
+    // Expected output is "" for this input
     StringBuilder res = new StringBuilder();
     for(int i = sb.length() -1; i >= 0; i--) {
       char c = sb.charAt(i);
