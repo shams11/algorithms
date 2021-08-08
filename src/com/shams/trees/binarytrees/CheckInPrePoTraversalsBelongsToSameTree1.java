@@ -53,7 +53,9 @@ public class CheckInPrePoTraversalsBelongsToSameTree1 {
       return index;
     }
     index = evaluatePostorder(po, root.left, index);
+    if(index == -1) return -1;
     index = evaluatePostorder(po, root.right, index);
+    if(index == -1) return -1;
     if (po[index] == root.val) {
       index++;
     } else {
