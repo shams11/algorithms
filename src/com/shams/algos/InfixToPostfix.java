@@ -18,16 +18,23 @@ public class InfixToPostfix {
     Stack<Character> stack = new Stack<>();
     for (int curIndex = 0; curIndex < exp.length(); ++curIndex) {
       char curChar = exp.charAt(curIndex);
+      // if character or letter, append to result. DONT PUSH IN STACK
       if (Character.isLetterOrDigit(curChar)) {
         result.append(curChar);
       } else if (curChar == '(') {
+        // if '(' push in stack
         stack.push(curChar);
       } else if (curChar == ')') {
+        // if ')', pop() until '(' is found on top of stack and append to the result
+        // DISCARD both '(' and ')'
         while (!stack.isEmpty() && stack.peek() != '(') {
           result.append(stack.pop());
         }
         stack.pop();
       } else {
+        // if the curChar/operator is lower precedence operator than the one on top of the stack
+        // then pop() the higher precedence operator and append to result
+        // at last push() the curChar/operator
         while (!stack.isEmpty() && precedence(curChar) <= precedence(stack.peek())) {
           result.append(stack.pop());
         }
