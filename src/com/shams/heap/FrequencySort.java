@@ -10,16 +10,6 @@ import java.util.PriorityQueue;
 
 public class FrequencySort {
 
-  static class Pair {
-    int freq;
-    int arrayEle;
-
-    public Pair(int value, Integer key) {
-      this.freq = value;
-      this.arrayEle = key;
-    }
-  }
-
   public static void main(String[] args) {
     int[] a = {2, 5, 2, 8, 5, 6, 8, 8};
     frequencySort(a);
@@ -30,17 +20,17 @@ public class FrequencySort {
     for (int i : a) {
       map.put(i, map.getOrDefault(i, 0) + 1);
     }
-    PriorityQueue<Pair> pq = new PriorityQueue<Pair>((e1, e2) -> {
-      int frequency1 = e1.freq;
-      int frequency2 = e2.freq;
+    PriorityQueue<Integer> pq = new PriorityQueue<>((e1, e2) -> {
+      int frequency1 = map.get(e1);
+      int frequency2 = map.get(e2);
       return frequency2 - frequency1;
     });
-    for (Map.Entry<Integer, Integer> e : map.entrySet()) {
-      pq.add(new Pair(e.getValue(), e.getKey()));
-    }
+
+    pq.addAll(map.keySet());
+
     while (!pq.isEmpty()) {
-      int freq = pq.peek().freq;
-      int arrayElement = pq.peek().arrayEle;
+      int freq = map.get(pq.peek());
+      int arrayElement = pq.peek();
       for (int i = 0; i < freq; i++) {
         System.out.print(arrayElement + " ");
       }
