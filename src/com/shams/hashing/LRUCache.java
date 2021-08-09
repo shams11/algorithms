@@ -1,5 +1,6 @@
 /**
  * https://www.geeksforgeeks.org/design-a-data-structure-for-lru-cache/?ref=rp
+ * https://leetcode.com/problems/lru-cache/
  * */
 package com.shams.hashing;
 
