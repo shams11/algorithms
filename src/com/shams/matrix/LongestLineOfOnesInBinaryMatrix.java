@@ -66,7 +66,7 @@ public class LongestLineOfOnesInBinaryMatrix {
         maxOnes = Math.max(maxOnes, ++curOnes);
       }
 
-      // Traverse from top-left to bottom left. At top-left index will be 0 
+      // Traverse from top-left to bottom left. At top-left index will be 0
       startI = index < n ? 0 : index - n + 1;
       startJ = index < n ? index : n - 1;
       curOnes = 0;
