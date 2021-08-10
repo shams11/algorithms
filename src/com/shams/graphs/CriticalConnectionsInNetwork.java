@@ -71,6 +71,9 @@ public class CriticalConnectionsInNetwork {
   static List<List<Integer>> result = new ArrayList<>();
 
   private static void dfs(int u) {
+    // low time is the time, of the earliest possible node this node can reach to
+    // ex : 0 -> 1 -> 2 (if there is an edge from 2 -> 0), then 0 is the earliest possible
+    // node, 2 can reach to. because 0 is parent of 1 and ancestor of 2
     disc[u] = low[u] = time;
     time++;
     List<Integer> neighbors = map.getOrDefault(u, new ArrayList<>());
@@ -84,6 +87,8 @@ public class CriticalConnectionsInNetwork {
         low[u] = Math.min(low[u], low[v]);
 
         // is this a critical edge/ bridge ?
+        // for an edge to be a bridge, low[v] (low of child), should be greater than
+        // disc[u] (disc time of parent)
         if (low[v] > disc[u]) {
           List<Integer> list = new ArrayList<>();
           list.add(u);
@@ -91,6 +96,8 @@ public class CriticalConnectionsInNetwork {
           result.add(list);
         }
       } else if (v != parent[u]) {
+        // we are considering disc[v] (ancestor of u), because we are considering only one back edge
+        // and the combination of multiple back edges
         low[u] = Math.min(low[u], disc[v]);
       }
     }
