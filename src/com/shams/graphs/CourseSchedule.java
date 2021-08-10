@@ -13,48 +13,52 @@ import java.util.Map;
 public class CourseSchedule {
   public static void main(String[] args) {
     int[][] a = {
-        {0, 2},
         {2, 3},
         {1, 3},
-        {0, 1}
+        {0, 2},
+        {1, 0}
     };
     System.out.println(canFinish(4, a));
   }
 
-  private static boolean canFinish(int numOfCourses, int[][] prerequisites) {
+  public static boolean canFinish(int numOfCourses, int[][] prerequisites) {
     Map<Integer, List<Integer>> map = new HashMap<>();
+    buildGraph(prerequisites, map);
+    int[] visited = new int[numOfCourses+1];
+    return isCycle(numOfCourses, map, visited);
+  }
+
+  static void buildGraph(int[][] prerequisites, Map<Integer, List<Integer>> map) {
     for(int[] pr : prerequisites) {
       if(!map.containsKey(pr[0])) {
         map.put(pr[0], new ArrayList<>());
       }
       map.get(pr[0]).add(pr[1]);
     }
-    System.out.println(map);
-    int[] colours = new int[numOfCourses+1];
-    for(int i = 0; i <= numOfCourses; i++) {
-      if(colours[i] == 0) {
-        if(isCycle(i, map, colours)) {
-          return true;
-        }
-      }
-    }
-    return false;
   }
 
-  private static boolean isCycle(int s, Map<Integer, List<Integer>> map, int[] colours) {
-    if(colours[s] == 2) return true;
-    colours[s] = 2;
-    // 0 - not processed
-    // 2 - In process
-    // 1 - processed
+  static boolean isCycle(int numOfCourses, Map<Integer, List<Integer>> map, int[] visited) {
+    for(int i = 0; i <= numOfCourses; i++) {
+      if(visited[i] == 0) {
+        if(isCycleUtil(i, map, visited)) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  private static boolean isCycleUtil(int s, Map<Integer, List<Integer>> map, int[] visited) {
+    if(visited[s] == 2) return true;
+    visited[s] = 2;
     for(Integer n : map.getOrDefault(s, new ArrayList<>())) {
-      if(colours[n] != 1) {
-        if(isCycle(n, map, colours)) {
+      if(visited[n] != 1) {
+        if(isCycleUtil(n, map, visited)) {
           return true;
         }
       }
     }
-    colours[s] = 1;
+    visited[s] = 1;
     return false;
   }
 }
