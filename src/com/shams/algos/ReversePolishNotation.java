@@ -50,7 +50,6 @@ public class ReversePolishNotation {
   }
 
   private static boolean isOperator(char charVal) {
-    if (charVal == '+' || charVal == '-' || charVal == '*' || charVal == '/') return true;
-    return false;
+    return charVal == '+' || charVal == '-' || charVal == '*' || charVal == '/';
   }
 }
