@@ -25,14 +25,14 @@ public class MinSticks {
     }
 
     int minCost = 0;
-    int totlCost = 0;
+    int totalCost = 0;
 
     while(!pq.isEmpty()) {
-      if(pq.size() == 1) return totlCost;
+      if(pq.size() == 1) return totalCost;
 
       int stick1 = pq.poll();
       int stick2 = pq.poll();
-      totlCost += stick1 + stick2;
+      totalCost += stick1 + stick2;
       pq.add(stick1 + stick2);
     }
     return totlCost;
