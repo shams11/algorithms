@@ -35,6 +35,6 @@ public class MinSticks {
       totalCost += stick1 + stick2;
       pq.add(stick1 + stick2);
     }
-    return totlCost;
+    return totalCost;
   }
 }
