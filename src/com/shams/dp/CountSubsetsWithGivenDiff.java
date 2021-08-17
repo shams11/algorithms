@@ -1,5 +1,7 @@
 package com.shams.dp;
 
+import java.util.Arrays;
+
 public class CountSubsetsWithGivenDiff {
   public static void main(String[] args) {
     int[] a = {1, 1, 2, 3};
@@ -8,10 +10,10 @@ public class CountSubsetsWithGivenDiff {
   }
 
   private static int countOfSubSetsWithGivenDiff(int[] a, int diff, int n) {
-    int totalSum = 0;
-    for (int i = 0; i < n; ++i) {
-      totalSum += a[i];
-    }
+    int totalSum = Arrays.stream(a).sum();
+    // sum(s1) + sum(s2) = sum(arr)
+    // sum(s1) - sum(s2) = diff
+    //  sum(s1) = (sum(arr) + diff) / 2
     int sum = (diff + totalSum) / 2;
     return countSubsetWithGiveSum(a, sum, n);
   }
