@@ -8,7 +8,7 @@ package com.shams.dp;
 
 public class CoinChangeProblemMinCoinsToSum {
   public static void main(String[] args) {
-    int[] coins = {1,2,5};
+    int[] coins = {1, 2, 5};
     int amount = 11;
     System.out.println(coinChange(coins, amount));
   }
@@ -16,17 +16,19 @@ public class CoinChangeProblemMinCoinsToSum {
   private static int coinChange(int[] coins, int sum) {
     int n = coins.length;
     int[][] t = new int[n + 1][sum + 1];
+    // i is sie of coin array
+    // j is sum. varies from 0,1, ... 5 in this example of {1, 2, 5}
     for (int i = 0; i < n + 1; i++) {
       for (int j = 0; j < sum + 1; j++) {
         if (i == 0) {
-          t[i][j] = Integer.MAX_VALUE -1;
+          t[i][j] = Integer.MAX_VALUE - 1;
         }
         if (j == 0) {
           t[i][j] = 0;
         }
       }
     }
-    t[0][0] = Integer.MAX_VALUE -1;
+    t[0][0] = Integer.MAX_VALUE - 1;
 
     for (int i = 1; i < n + 1; i++) {
       for (int j = 1; j < sum + 1; j++) {
@@ -37,6 +39,6 @@ public class CoinChangeProblemMinCoinsToSum {
         }
       }
     }
-    return t[n][sum] == Integer.MAX_VALUE-1 ? -1 : t[n][sum];
+    return t[n][sum] == Integer.MAX_VALUE - 1 ? -1 : t[n][sum];
   }
 }
