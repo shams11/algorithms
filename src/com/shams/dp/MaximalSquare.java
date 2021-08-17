@@ -24,6 +24,9 @@ public class MaximalSquare {
     for (int i = 1; i < m + 1; i++) {
       for (int j = 1; j < n + 1; j++) {
         if (matrix[i - 1][j - 1] == 1) {
+                                        //^
+          // find min in all directions <-|. i.e prev col, row and diag elements
+          // 1st row and 1st col will be 0's to take care of out of bounds case
           t[i][j] = 1 + min(t[i - 1][j - 1], t[i][j - 1], t[i - 1][j]);
           largest = Math.max(largest, t[i][j]);
         }
