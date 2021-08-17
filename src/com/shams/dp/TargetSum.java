@@ -10,13 +10,11 @@ public class TargetSum {
   public static void main(String[] args) {
     int[] a = {1, 1, 1, 1, 1};
     int diff = 3;
-    System.out.println(countOfSubSetsEithGivenDiff(a, diff, a.length));
+    System.out.println(countOfSubSetsWithGivenDiff(a, diff, a.length));
   }
 
-  private static int countOfSubSetsEithGivenDiff(int[] a, int diff, int n) {
-    int totalSum = 0;
-
-    totalSum = Arrays.stream(a).sum();
+  private static int countOfSubSetsWithGivenDiff(int[] a, int diff, int n) {
+    int totalSum = Arrays.stream(a).sum();
     int sum = (diff + totalSum) / 2;
     return countSubsetWithGiveSum(a, sum, n);
   }
