@@ -50,6 +50,9 @@ public class MinSubsetSumDiff {
       }
     }
 
+    // s1 + s2 = sum and s2 = sum - s1
+    // we need to minimize the diff b/w subsets. so |s2 - s1| should be minimized
+    // |s2 - s1| => (sum - s1) - s1 => sum - 2 * s1
     // if [1, 2, 7] is the input, then the elements (which are s1) in the last row of the matrix which are
     // contributing to sum. place these s1's in sum - 2 * s1 and take min, that will be the answer
     for (Integer s1 : lastRowInMatrix) {
