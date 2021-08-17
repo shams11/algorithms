@@ -1,5 +1,6 @@
 /**
  * https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
+ * https://leetcode.com/problems/longest-common-subsequence/
  * https://www.youtube.com/watch?v=4Urd0a0BNng&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=19&ab_channel=AdityaVerma
  */
 
@@ -11,8 +12,12 @@ public class LongestCommonSubSequence {
 
   public static void main(String[] args) {
 
-    String s1 = "horse";
-    String s2 = "ros";
+//    String s1 = "horse";
+//    String s2 = "ros";
+    String s1 = "AGGTAB";
+    String s2 = "GXTXAYB";
+    // LCS : GTAB
+    // Output : 4
 
     char[] X = s1.toCharArray();
     char[] Y = s2.toCharArray();
