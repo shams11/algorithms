@@ -16,7 +16,7 @@ public class CoinChangeProblemMinCoinsToSum {
   private static int coinChange(int[] coins, int sum) {
     int n = coins.length;
     int[][] t = new int[n + 1][sum + 1];
-    // i is sie of coin array
+    // i is size of coin array
     // j is sum. varies from 0,1, ... 5 in this example of {1, 2, 5}
     for (int i = 0; i < n + 1; i++) {
       for (int j = 0; j < sum + 1; j++) {
