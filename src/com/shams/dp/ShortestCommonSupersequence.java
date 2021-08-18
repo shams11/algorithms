@@ -13,12 +13,15 @@ public class ShortestCommonSupersequence {
     String s1 = "voldemort";
     String s2 = "dumbledore";
 
+    // scs : voldeumlemdorte
+
     int m = s1.length();
     int n = s2.length();
 
     t = new int[m + 1][n + 1];
     int l = lcs(s1, s2, m, n);
 
+    //ANSWER : S1.length() + S2.length() - (length of LCS)
     System.out.println("length of shortest common super sequence : " + (m + n - l));
   }
 
