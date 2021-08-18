@@ -16,8 +16,13 @@ public class MinDeletionToMakeStringPalindrome {
     t = new int[m+1][n+1];
     int l = lcs(s, rs.toString(), m, n);
     System.out.println("lcs : " + l);
+    // LCS : 5
     System.out.println( m  - l);
+    // Output : 13 - 5 = 8
   }
+
+  // geeksforgeeks
+  // skeegrofskeeg
 
    // Min deletions to make string Palindrome = s.length - LPS
   // LPS = LCS(a, rev(a))
