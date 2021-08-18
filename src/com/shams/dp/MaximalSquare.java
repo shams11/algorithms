@@ -27,6 +27,10 @@ public class MaximalSquare {
                                         //^
           // find min in all directions <-|. i.e prev col, row and diag elements
           // 1st row and 1st col will be 0's to take care of out of bounds case
+
+          // The previous number on the left, up and diagonal would hve checked the values
+          // of previous values for its left, up and diagonal. so, we can assume that, the number
+          // at i, j is 1, then it can be extended for bigger square matrix
           t[i][j] = 1 + min(t[i - 1][j - 1], t[i][j - 1], t[i - 1][j]);
           largest = Math.max(largest, t[i][j]);
         }
