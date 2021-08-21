@@ -3,7 +3,7 @@ package com.shams.threads;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ThreadSafeFormatter {
+public class ThreadLocalExample {
 
 
   public static ThreadLocal<SimpleDateFormat> dateFormatter = ThreadLocal.withInitial(
@@ -21,7 +21,7 @@ class UserService {
     Date dob = birthDateFromDB(userId);
     // When the thread calls this method, based on which thread calls this get method,
     // By default, it will get its own copy
-    final SimpleDateFormat df = ThreadSafeFormatter.dateFormatter.get();
+    final SimpleDateFormat df = ThreadLocalExample.dateFormatter.get();
     return df.format(dob);
   }
 
