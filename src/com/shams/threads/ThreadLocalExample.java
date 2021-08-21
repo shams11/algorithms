@@ -4,28 +4,38 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ThreadLocalExample {
-
-
-  public static ThreadLocal<SimpleDateFormat> dateFormatter = ThreadLocal.withInitial(
-      () -> new SimpleDateFormat("yyyy-MM-dd"));
-
-}
-
-class UserService {
   public static void main(String[] args) {
+    ThreadLocal<String> threadLocal = new ThreadLocal<>();
 
-  }
+    // Thread 1
+    Thread t1 = new Thread( () -> {
+      threadLocal.set("Thread 1");
+      try {
+        Thread.sleep(2000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+
+      String value = threadLocal.get();
+      System.out.println("Thread 1 : " + value);
+    });
 
 
-  public String birthDate(int userId) {
-    Date dob = birthDateFromDB(userId);
-    // When the thread calls this method, based on which thread calls this get method,
-    // By default, it will get its own copy
-    final SimpleDateFormat df = ThreadLocalExample.dateFormatter.get();
-    return df.format(dob);
-  }
+    // Thread 2
+    Thread t2 = new Thread( () -> {
+      threadLocal.set("Thread 2");
+      try {
+        Thread.sleep(2000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
 
-  private Date birthDateFromDB(int userId) {
-    return new Date();
+      String value = threadLocal.get();
+      System.out.println("Thread 2 : " + value);
+    });
+
+    t1.start();
+    t2.start();
   }
 }
+
