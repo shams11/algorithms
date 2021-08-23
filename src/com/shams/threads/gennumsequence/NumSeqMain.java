@@ -16,7 +16,8 @@ public class NumSeqMain {
     t3.start();
   }
 
-  // Output : Thread 1 1
+  // Output :
+  //Thread 1 1
   //Thread 2 2
   //Thread 3 3
   //Thread 1 4
