@@ -32,6 +32,14 @@ public class WordSearchII {
     char[][] board = {{'a', 'b'}, {'c', 'd'}};
     String[] words = {"abcb"};
     System.out.println(findWords(board, words));
+    // Time Complexity :
+    // O(m * n * 4 ^ (maxlengthword))
+    // because we can start as many as possible position = m*n of the grid
+    // and then starting from any point we can go as long as maximum length word at any time.
+    // We are using trie so that the words having common prefix or another way to say words
+    // sharing common path in the grid can be search and store in result in a same traversal
+    // of that path to save time.But in worst case it will take same time as bruteforce
+    // approach without trie.
   }
 
   static Node root;
