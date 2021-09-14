@@ -22,11 +22,11 @@ public class LexicographicDictionarySearchInTrie {
   public static void insert(Trie root, String s, int stringIndexInArray) {
     Trie node = root;
     for (int i = 0; i < s.length(); ++i) {
-      int charIndexInString = s.charAt(i) - 'a';
-      if (node.children[charIndexInString] == null) {
-        node.children[charIndexInString] = new Trie();
+      int charInString = s.charAt(i) - 'a';
+      if (node.children[charInString] == null) {
+        node.children[charInString] = new Trie();
       }
-      node = node.children[charIndexInString];
+      node = node.children[charInString];
     }
     node.index = stringIndexInArray;
   }
