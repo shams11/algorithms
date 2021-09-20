@@ -26,21 +26,25 @@ public class SpiralMatrix {
     int dir = 0;
     while (top <= down && left <= right) {
       if (dir == 0) {
+        // Traverse top
         for (int i = left; i <= right; i++) {
           nums.add(matrix[top][i]);
         }
         top++;
       } else if (dir == 1) {
+        // Traverse right
         for (int i = top; i <= down; i++) {
           nums.add(matrix[i][right]);
         }
         right--;
       } else if (dir == 2) {
+        // Traverse down
         for (int i = right; i >= left; i--) {
           nums.add(matrix[down][i]);
         }
         down--;
       } else if (dir == 3) {
+        // Traverse left
         for (int i = down; i >= top; i--) {
           nums.add(matrix[i][left]);
         }
