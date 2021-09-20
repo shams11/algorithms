@@ -7,6 +7,10 @@ public class WordSearch {
   public static void main(String[] args) {
     //Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
     //Output: true
+
+    // Time complexity : O(N ^ 2) : For each cell, dfs is applied when the character matches.
+    // Hence, worst case complexity
+    // space complexity : O(N)
     char[][] board = {
         {'A', 'B', 'C', 'E'},
         {'S', 'F', 'C', 'S'},
