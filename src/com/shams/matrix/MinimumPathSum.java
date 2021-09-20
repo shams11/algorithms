@@ -6,11 +6,22 @@ package com.shams.matrix;
 
 public class MinimumPathSum {
   public static void main(String[] args) {
+
+  // Example 1
 //    int[][] grid = {
 //        {1, 3, 1},
 //        {1, 5, 1},
 //        {4, 2, 1}
 //    };
+
+    // DP table filling method
+
+    // 1 4 5
+    // 2 7 6
+    // 6 8 7
+    // Output : 7
+
+  // Example 2
 //    int[][] grid = {
 //        {1, 2, 3},
 //        {4, 5, 6}
@@ -38,10 +49,10 @@ public class MinimumPathSum {
         }
         else if(i == 0 || j == 0) {
           if(i == 0) {
-            t[i][j] = t[i][j - 1];
+            t[i][j] = grid[i][j] + t[i][j - 1];
           }
           if(j == 0) {
-            t[i][j] = t[i-1][j];
+            t[i][j] = grid[i][j] + t[i-1][j];
           }
         } else {
           t[i][j] = grid[i][j] + Math.min(t[i-1][j], t[i][j-1]);
