@@ -5,6 +5,8 @@
 
 package com.shams.matrix;
 
+import java.sql.Time;
+
 public class LongestIncreasingPath {
 
 
@@ -35,6 +37,9 @@ public class LongestIncreasingPath {
     //Output: 4
     //Explanation: The longest increasing path is [1, 2, 6, 9].
     System.out.println(longestIncreasingPath(mat2));
+
+    // Time complexity : O(M * N) where M = no. of rows and N = no. of columns
+    // Space Complexity : O(M * N) because of table matrix
   }
 
   static int[][] DIRECTIONS = {
