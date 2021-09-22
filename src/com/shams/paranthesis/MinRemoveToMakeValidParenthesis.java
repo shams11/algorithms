@@ -9,7 +9,8 @@ public class MinRemoveToMakeValidParenthesis {
     // Input: s = "lee(t(c)o)de)"
     //Output: "lee(t(c)o)de"
     //Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
-    String s = "lee(t(c)o)de)";
+   // String s = "lee(t(c)o)de)";
+    String s = "))((";
     System.out.println(minRemoveToMakeValid(s));
   }
 
@@ -30,9 +31,10 @@ public class MinRemoveToMakeValidParenthesis {
       }
       sb.append(c);
     }
-    System.out.println(sb);
+    System.out.println("sb : " + sb + " count : " + count);
 
-    // if the inout is : "))((", then below code will remove additional ')
+    // if the input is : "))((", then below code will remove additional '('.
+    // because above code would have removed '))', then '((' should be removed now.
     // Expected output is "" for this input
     StringBuilder res = new StringBuilder();
     for(int i = sb.length() -1; i >= 0; i--) {
