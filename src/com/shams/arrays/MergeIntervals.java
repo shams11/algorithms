@@ -34,15 +34,15 @@ public class MergeIntervals {
   public static int[][] merge(int[][] intervals) {
     if (intervals.length <= 1) return intervals;
     Arrays.sort(intervals, (e1, e2) -> e1[0] - e2[0]);
-    int[] newInterval = intervals[0];
+    int[] previousInterval = intervals[0];
     List<int[]> result = new ArrayList<>();
-    result.add(newInterval);
+    result.add(previousInterval);
     for (int[] interval : intervals) {
-      if (interval[0] <= newInterval[1]) {
-        newInterval[1] = Math.max(newInterval[1], interval[1]);
+      if (interval[0] <= previousInterval[1]) {
+        previousInterval[1] = Math.max(previousInterval[1], interval[1]);
       } else {
-        newInterval = interval;
-        result.add(newInterval);
+        previousInterval = interval;
+        result.add(previousInterval);
       }
     }
     return result.toArray(new int[result.size() - 1][]);
