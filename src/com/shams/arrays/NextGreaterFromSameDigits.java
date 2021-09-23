@@ -15,9 +15,13 @@ public class NextGreaterFromSameDigits {
 
 
   public static void main(String[] args) {
-    int[] a = {2, 3, 1};
-    nextPermutation(a);
-    Arrays.stream(a).forEach(System.out::print);
+    //int[] a1 = {2, 3, 1};
+    //Output : 312
+    int[] a2 = {5,3,4,9,7,6};
+    // Output : 536479
+    nextPermutation(a2);
+    Arrays.stream(a2).forEach(System.out::print);
+
   }
 
   public static void nextPermutation(int[] nums) {
