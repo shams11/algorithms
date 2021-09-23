@@ -5,8 +5,6 @@
 
 package com.shams.binarysearch;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class SearchInBitonicArray {
   public static void main(String[] args) {
 //    int[] a = {-3, 9, 18, 20, 17, 5, 1};
