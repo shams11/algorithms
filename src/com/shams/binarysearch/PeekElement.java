@@ -25,6 +25,7 @@ public class PeekElement {
     int mid;
     while (start <= end) {
       mid = start + (end - start) / 2;
+      // if mid falls between 1st index and n-2th index
       if (mid > 0 && mid < end) {
         if (a[mid] > a[mid - 1] && a[mid] > a[mid + 1]) {
           return mid;
