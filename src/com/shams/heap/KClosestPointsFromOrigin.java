@@ -45,6 +45,8 @@ public class KClosestPointsFromOrigin {
 
   private static void kClosestPoints(int[][] points, int k) {
 
+    // store it in desc order, so that when removed from PQ, points with greater distance will
+    // be removed
     PriorityQueue<Pair> pq = new PriorityQueue<>((e1, e2) -> e2.dist - e1.dist);
 
     for(int[] p : points) {
