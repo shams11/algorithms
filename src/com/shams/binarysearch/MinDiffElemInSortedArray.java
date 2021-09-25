@@ -7,7 +7,7 @@ package com.shams.binarysearch;
 public class MinDiffElemInSortedArray {
   public static void main(String[] args) {
     int[] a = {1, 3, 8, 10, 15};
-    int k = 25;
+    int k = 6;
     System.out.println(getMinDiffForKey(a, 0, a.length - 1, k));
   }
 
@@ -30,6 +30,8 @@ public class MinDiffElemInSortedArray {
         start = mid + 1;
       }
     }
+    // when start and end cross over after while loop, the min difference of elements at start and end with K
+    // will be the answer
     return Math.min(Math.abs(a[end] - key), Math.abs(a[start] - key));
   }
 }
