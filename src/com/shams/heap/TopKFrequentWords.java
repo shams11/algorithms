@@ -1,11 +1,9 @@
+/**
+ * https://leetcode.com/problems/top-k-frequent-words/
+ * */
 package com.shams.heap;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class TopKFrequentWords {
   public static void main(String[] args) {
@@ -35,11 +33,10 @@ public class TopKFrequentWords {
         pq.poll();
       }
     }
-    List<String> result = new ArrayList<>();
+    LinkedList<String> list = new LinkedList<>();
     while(pq.size() > 0) {
-      result.add(pq.poll());
+      list.addFirst(pq.poll());
     }
-    Collections.reverse(result);
-    return result;
+    return list;
   }
 }
