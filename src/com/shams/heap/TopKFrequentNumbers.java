@@ -5,12 +5,7 @@
 
 package com.shams.heap;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class TopKFrequentNumbers {
 
@@ -36,11 +31,10 @@ public class TopKFrequentNumbers {
         pq.poll();
       }
     }
-    List<Integer> list = new ArrayList<>();
+    LinkedList<Integer> list = new LinkedList<>();
     while (!pq.isEmpty()) {
-      list.add(pq.poll());
+      list.addFirst(pq.poll());
     }
-    Collections.reverse(list);
     return list;
   }
 }
