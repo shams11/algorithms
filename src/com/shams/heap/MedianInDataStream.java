@@ -36,6 +36,8 @@ public class MedianInDataStream {
       // min heap will contain max elements ex : [7, 8, 9, 10]
 
       // if there are equal elements add in max heap
+
+      // All elements in max heap will be bigger than min heap elements
       if (n > minHeap.peek()) {
         maxHeap.add(minHeap.poll());
         minHeap.add(n);
