@@ -18,6 +18,14 @@ public class CourseSchedule {
         {0, 2},
         {1, 0}
     };
+
+    // false example
+    //  int[][] a = {
+    //        {2, 3},
+    //        {1, 3},
+    //        {0, 2},
+    //        {3, 1}
+    //    };
     System.out.println(canFinish(4, a));
   }
 
@@ -28,6 +36,15 @@ public class CourseSchedule {
     return isCycle(numOfCourses, map, visited);
   }
 
+
+  //    3 -> 2 -> 0 -> 1
+
+
+  // [
+  //    2 -> [3]
+  //    1 -> [3, 0]
+  //    0 -> [2]
+  // ]
   static void buildGraph(int[][] prerequisites, Map<Integer, List<Integer>> map) {
     for(int[] pr : prerequisites) {
       if(!map.containsKey(pr[0])) {
