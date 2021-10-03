@@ -54,6 +54,13 @@ public class CountComponentsInGraph {
 //    };
     // Output : 3
     //System.out.println(countComponents(n, edges));
+
+    // [
+    //  0 -> [1]
+    //  1 -> [0, 2]
+    //  2 -> [1]
+    //  3 -> [4]
+    // ]
     System.out.println(countComponents2(n, edges));
   }
 
