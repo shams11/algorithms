@@ -39,6 +39,7 @@ public class MaxDiffBetweenNodeAndAncestor {
     if (root == null) {
       return max - min;
     }
+    // current node will be either min or max. compare it against min and max to evaluate to min/max
     min = Math.min(root.val, min);
     max = Math.max(root.val, max);
     int left = maxAncestorDiffHelper(root.left, max, min);
