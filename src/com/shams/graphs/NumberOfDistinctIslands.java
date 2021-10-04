@@ -27,7 +27,7 @@ public class NumberOfDistinctIslands {
     System.out.println(numOfDistinctIslands(a));
   }
 
-  /* X - start
+  /*  X - start
    *  O - out of bounds or water (0)
    *  L - left
    *  R - right
