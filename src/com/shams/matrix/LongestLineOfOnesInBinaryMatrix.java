@@ -78,6 +78,10 @@ public class LongestLineOfOnesInBinaryMatrix {
       // Traverse from top-left to bottom left. At top-left index will be 0
       // Ex : index = 0, then startI and startY = (0, 0)
       // Ex : index = 1, then startI and startY = (0, 1)
+
+      // (0,0)
+      // (1,0), (0,1)
+      // (2,0), (1,1),(0,2)
       startI = index < n ? 0 : index - n + 1;
       startJ = index < n ? index : n - 1;
       curOnes = 0;
