@@ -52,9 +52,18 @@ public class LongestLineOfOnesInBinaryMatrix {
     // starting index will be 0 at (2, 0) for bottom-left diagonal
     // and index will be 0 at (0, 0) for top-left diagonal
 
+
     // Traverse diagonally and anti-diagonally from bottom left and top left
     for (int index = 0; index < m + n; ++index) {
       curOnes = 0;
+
+      // Traversing diagonals starting
+      // index -> 0 => (2,0) -> startI should be 2
+      // index -> 1 => (1,0), (2,1) -> startI should be 1
+      // index -> 2 => (0,0),(1,1),(2,2) -> startI should be 0
+      // index -> 3 => (0,1), (1,2), (2,3) -> startI should be 0, because diagonal will always start from 0th row
+      // index -> 4 => (0,2), (1,3)
+      // index -> 5 => (0, 3)
       int startI = index >= m - 1 ? 0 : m - 1 - index;
       int startJ = index >= m - 1 ? index + 1 - m : 0;
       // Traverse from bottom-left
