@@ -79,11 +79,18 @@ public class LongestLineOfOnesInBinaryMatrix {
       // Ex : index = 0, then startI and startY = (0, 0)
       // Ex : index = 1, then startI and startY = (0, 1)
 
-      // (0,0)
-      // (1,0), (0,1)
+      // {
+          // (0,0), (0,1) (0,2), (0,3)
+          // (1,0), (1,1) (1,2), (1,3)
+          // (2,0), (2,1) (2,2), (2,3)
+      // }
+
+      // (0,0) => index at 0, result will be (0,0)
+      // (1,0), (0,1) =>
       // (2,0), (1,1),(0,2)
       startI = index < n ? 0 : index - n + 1;
       startJ = index < n ? index : n - 1;
+      // n-1 because, index starts from last column and index because j starts from (0,0), (0,1), (0,2)
       curOnes = 0;
       for (int i = startI, j = startJ; i < m && j >= 0; ++i, --j) {
         if (mat[i][j] == 0) {
