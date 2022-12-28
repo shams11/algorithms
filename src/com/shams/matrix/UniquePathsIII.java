@@ -21,7 +21,11 @@ public class UniquePathsIII {
     //3. (0,0),(1,0),(2,0),(2,1),(2,2),(1,2),(1,1),(0,1),(0,2),(0,3),(1,3),(2,3)
     //4. (0,0),(1,0),(2,0),(2,1),(1,1),(0,1),(0,2),(0,3),(1,3),(1,2),(2,2),(2,3)
 
-    // Input: [[0,1],[2,0]]
+    // Input:
+    // [
+    // [0,1],
+    // [2,0]
+    // ]
     //Output: 0
     //Explanation:
     //There is no path that walks over every empty square exactly once.
@@ -50,6 +54,16 @@ public class UniquePathsIII {
     return dfs(grid, startX, startY, zero);
   }
 
+  // Input: grid =
+  // [
+  // [1,0,0,0],
+  // [0,0,0,0],
+  // [0,0,2,-1]
+  // ]
+  //Output: 2
+  //Explanation: We have the following two paths:
+  //1. (0,0),(0,1),(0,2),(0,3),(1,3),(1,2),(1,1),(1,0),(2,0),(2,1),(2,2)
+  //2. (0,0),(1,0),(2,0),(2,1),(1,1),(0,1),(0,2),(0,3),(1,3),(1,2),(2,2)
   static int dfs(int[][] grid, int i, int j, int zero) {
     if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == -1) {
       return 0;
