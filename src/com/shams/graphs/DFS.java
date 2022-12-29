@@ -36,7 +36,6 @@ public class DFS {
     List<Integer> neighbours = getNeighbours(s, m);
     for (Integer u : neighbours) {
       if (!visited[u]) {
-        stack.push(u);
         dfs(u, m);
       }
     }
