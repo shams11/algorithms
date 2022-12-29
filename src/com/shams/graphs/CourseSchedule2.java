@@ -27,12 +27,23 @@ import java.util.Map;
 public class CourseSchedule2 {
   public static void main(String[] args) {
     int[][] prerequisites = {
+//    cycle example
+//        {0, 2},
+//        {0, 1},
+//        {3,0},
+//        {2, 3},
+//        {1, 3}
+
+// Non cycle example
         {0, 2},
         {0, 1},
         {2, 3},
         {1, 3}
+
+
+    //        {1,0}
     };
-    int numCourses = 4;
+    int numCourses = 2;
     System.out.println(Arrays.toString(findOrder(numCourses, prerequisites)));
   }
 
@@ -82,13 +93,11 @@ public class CourseSchedule2 {
     if (colours[s] == 2) return true;
     colours[s] = 2;
     for (Integer n : map.getOrDefault(s, new ArrayList<>())) {
-      if (colours[n] != 1) {
         if (isCycleDFS(n, colours)) {
           return true;
         }
-      }
     }
-    colours[s] = 1;
+   colours[s] = 1;
     return false;
   }
 
