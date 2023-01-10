@@ -45,6 +45,20 @@ public class BoundaryTraversal {
     return result;
   }
 
+  private static void getLeftBoundary(TreeNode root, List<Integer> result) {
+    if (root == null) {
+      return;
+    }
+    if (root.left != null) {
+      result.add(root.val);
+      getLeftBoundary(root.left, result);
+    } else if (root.right != null) {
+      result.add(root.val);
+      getLeftBoundary(root.right, result);
+    }
+    // don't so anything for leaf nodes
+  }
+
   private static void getLeaves(TreeNode root, List<Integer> result) {
     if (root == null) {
       return;
@@ -66,20 +80,6 @@ public class BoundaryTraversal {
     } else if (root.left != null) {
       getRightBoundary(root.left, result);
       result.add(root.val);
-    }
-    // don't so anything for leaf nodes
-  }
-
-  private static void getLeftBoundary(TreeNode root, List<Integer> result) {
-    if (root == null) {
-      return;
-    }
-    if (root.left != null) {
-      result.add(root.val);
-      getLeftBoundary(root.left, result);
-    } else if (root.right != null) {
-      result.add(root.val);
-      getLeftBoundary(root.right, result);
     }
     // don't so anything for leaf nodes
   }
