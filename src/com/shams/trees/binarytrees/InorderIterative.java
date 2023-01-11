@@ -6,7 +6,6 @@
 
 package com.shams.trees.binarytrees;
 
-import com.shams.commons.UtilityHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -14,30 +13,43 @@ import java.util.Stack;
 public class InorderIterative {
 
   public static void main(String[] args) {
-    UtilityHelper.Node root = new UtilityHelper.Node(1);
-    root.left = new UtilityHelper.Node(2);
-    root.right = new UtilityHelper.Node(3);
-    root.left.left = new UtilityHelper.Node(4);
-    root.left.right = new UtilityHelper.Node(5);
-    root.right.left = new UtilityHelper.Node(6);
-    root.right.right = new UtilityHelper.Node(7);
-    System.out.println(inorderIterative(root));
+    Node root = new Node(1);
+    root.left = new Node(2);
+    root.right = new Node(3);
+    root.left.left = new Node(4);
+    root.left.right = new Node(5);
+    root.right.left = new Node(6);
+    root.right.right = new Node(7);
+    List<Node> result = inorderIterative(root);
+    for (Node node : result) {
+      System.out.print(node.val + " ");
+    }
+
   }
 
-  private static List<Integer> inorderIterative(UtilityHelper.Node root) {
+  public static class Node {
+    int val;
+    Node left;
+    Node right;
 
+    Node(int val) {
+      this.val = val;
+    }
+  }
+
+  private static List<Node> inorderIterative(Node root) {
     if (root == null) {
       return List.of();
     }
-    Stack<UtilityHelper.Node> s = new Stack<>();
-    List<Integer> result = new ArrayList<>();
-    while (root != null || !s.isEmpty()) {
+    Stack<Node> stack = new Stack<>();
+    List<Node> result = new ArrayList<>();
+    while (root != null || !stack.isEmpty()) {
       if (root != null) {
-        s.push(root);
+        stack.push(root);
         root = root.left;
       } else {
-        root = s.pop();
-        result.add(root.val);
+        root = stack.pop();
+        result.add(root);
         root = root.right;
       }
     }
