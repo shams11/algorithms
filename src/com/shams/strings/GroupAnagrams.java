@@ -11,24 +11,24 @@ import java.util.Map;
 
 public class GroupAnagrams {
   public static void main(String[] args) {
-    //Input: strs = ["eat","tea","tan","ate","nat","bat"]
-    //Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+    // Input: strs = ["eat","tea","tan","ate","nat","bat"]
+    // Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 
-    String[] strs = {"eat","tea","tan","ate","nat","bat"};
+    String[] strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
     System.out.println(groupAnagrams(strs));
   }
 
   public static List<List<String>> groupAnagrams(String[] strs) {
-    if(strs == null || strs.length == 0) {
-      return List.of();
+    if (strs == null || strs.length == 0) {
+      return null;
     }
     List<List<String>> result = new ArrayList<>();
     Map<String, List<String>> map = new HashMap<>();
-    for(String s : strs) {
+    for (String s : strs) {
       char[] charArray = s.toCharArray();
       Arrays.sort(charArray);
       String sortedString = new String(charArray);
-      if(!map.containsKey(sortedString)) {
+      if (!map.containsKey(sortedString)) {
         map.put(sortedString, new ArrayList<>());
       }
       map.get(sortedString).add(s);
