@@ -2,6 +2,7 @@
  * https://www.geeksforgeeks.org/the-stock-span-problem/
  * https://www.youtube.com/watch?v=p9T-fE1g1pU&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=6
  * https://leetcode.com/problems/online-stock-span/
+ * https://www.youtube.com/watch?v=IE06mnQEcGc&ab_channel=MRCoder
  */
 
 package com.shams.stack;
@@ -23,8 +24,8 @@ public class StockSpan {
   }
 
   public static void main(String[] args) {
-    int[] a = {100, 80, 60, 70, 60, 75, 85};
-    //int[] a = {6, 2, 5, 4, 5, 1, 6};
+    int[] a = { 100, 80, 60, 70, 60, 75, 85 };
+    // int[] a = {6, 2, 5, 4, 5, 1, 6};
     System.out.println(getConsecutiveSmallerOnLeftOfEachElement(a));
   }
 
@@ -34,7 +35,7 @@ public class StockSpan {
     List<Integer> result = new ArrayList<>();
     for (int i = 0; i < a.length; i++) {
       if (s.isEmpty()) {
-        //s.push(new Pair(a[i], i));
+        // s.push(new Pair(a[i], i));
         list.add(-1);
       } else if (a[i] <= s.peek().val) {
         list.add(s.peek().index);
@@ -50,10 +51,40 @@ public class StockSpan {
       }
       s.push(new Pair(a[i], i));
     }
-    System.out.println( "nsl : " + list);
+    System.out.println("nsl : " + list);
     for (int i = 0; i < list.size(); i++) {
       result.add(i - list.get(i));
     }
     return result;
   }
 }
+
+/**
+ * class StockSpanner {
+ * 
+ * public StockSpanner() {
+ * 
+ * }
+ * 
+ * class Pair {
+ * int stockPrice;
+ * int stockSpan;
+ * Pair(int stockPrice, int stockSpan) {
+ * this.stockPrice = stockPrice;
+ * this.stockSpan = stockSpan;
+ * }
+ * }
+ * 
+ * Stack<Pair> stack = new Stack<>();
+ * public int next(int price) {
+ * int span = 1;
+ * while(!stack.isEmpty() && price >= stack.peek().stockPrice) {
+ * span += stack.peek().stockSpan;
+ * stack.pop();
+ * }
+ * stack.push(new Pair(price, span));
+ * return span;
+ * }
+ * }
+ * 
+ **/
