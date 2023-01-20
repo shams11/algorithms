@@ -40,7 +40,7 @@ public class FindPairsWithSumK {
 
   private static List<List<Integer>> getPairsWithSumK(Node root, int k) {
     if (root == null) {
-      return List.of();
+      return null;
     }
     Node cur1 = root;
     Node cur2 = root;
