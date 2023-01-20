@@ -5,7 +5,6 @@
 
 package com.shams.stack;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,9 +12,9 @@ import java.util.Stack;
 
 public class MaxAreaHistogram {
   public static void main(String[] args) {
-   //  int[] a = {2, 1, 5, 6, 2, 3};
-    int[] a = {6, 2, 5, 4, 5, 1, 6};
-    //int[] a = {2, 1, 0, 1, 3};
+    // int[] a = {2, 1, 5, 6, 2, 3};
+    int[] a = { 6, 2, 5, 4, 5, 1, 6 };
+    // int[] a = {2, 1, 0, 1, 3};
     System.out.println(largestRectangleArea(a));
   }
 
@@ -38,6 +37,7 @@ public class MaxAreaHistogram {
     int max = Integer.MIN_VALUE;
     for (int i = 0; i < heights.length; i++) {
       System.out.println(heights[i] + "*" + nextSmallestRight.get(i) + "-" + nextSmallestLeft.get(i) + "-1");
+      // Calculating Area = (length * breadth) and getting the maximum area
       max = Math.max(max, heights[i] * (nextSmallestRight.get(i) - nextSmallestLeft.get(i) - 1));
     }
     return max;
