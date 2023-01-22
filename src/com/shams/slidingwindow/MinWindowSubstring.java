@@ -10,15 +10,16 @@ import java.util.Map;
 
 public class MinWindowSubstring {
   public static void main(String[] args) {
-//    Input: s = "ADOBECODEBANC", t = "ABC"
-//    Output: "BANC"
+    // Input: s = "ADOBECODEBANC", t = "ABC"
+    // Output: "BANC"
     String s = "ADOBECODEBANC";
     String t = "ABC";
     System.out.println(minWindow(s, t));
   }
 
   public static String minWindow(String s, String t) {
-    if (s == null || t == null || s.length() == 0 || t.length() == 0) return "";
+    if (s == null || t == null || s.length() == 0 || t.length() == 0)
+      return "";
 
     Map<Character, Integer> map = new HashMap<>();
     for (int i = 0; i < t.length(); i++) {
@@ -61,9 +62,10 @@ public class MinWindowSubstring {
           left = i;
           right = j;
           found = true;
+          System.out.println("Min : " + min);
         }
       }
     }
-    return !found ? "" : s.substring(left-1, right);
+    return !found ? "" : s.substring(left - 1, right);
   }
 }

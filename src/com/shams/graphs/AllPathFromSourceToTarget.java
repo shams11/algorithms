@@ -14,22 +14,21 @@ import java.util.Queue;
 public class AllPathFromSourceToTarget {
   public static void main(String[] args) {
     int[][] graph = {
-        {4, 3, 1},
-        {3, 2, 4},
-        {3},
-        {4},
+        { 4, 3, 1 },
+        { 3, 2, 4 },
+        { 3 },
+        { 4 },
         {}
     };
     // Output : [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]
     System.out.println(allPathsSourceTarget(graph));
   }
 
-
   static List<List<Integer>> result = new ArrayList<>();
 
   public static List<List<Integer>> allPathsSourceTarget(int[][] graph) {
     Queue<List<Integer>> q = new LinkedList<>();
-    q.add(List.of(0));
+    q.add(new ArrayList<>(0));
     while (!q.isEmpty()) {
       List<Integer> curList = q.poll();
       Integer lastNode = curList.get(curList.size() - 1);
