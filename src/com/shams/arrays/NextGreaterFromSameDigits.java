@@ -6,18 +6,13 @@
 package com.shams.arrays;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 public class NextGreaterFromSameDigits {
 
-
   public static void main(String[] args) {
-    //int[] a1 = {2, 3, 1};
-    //Output : 312
-    int[] a2 = {5,3,4,9,7,6};
+    // int[] a1 = {2, 3, 1};
+    // Output : 312
+    int[] a2 = { 5, 3, 4, 9, 7, 6 };
     // Output : 536479
     nextPermutation(a2);
     Arrays.stream(a2).forEach(System.out::print);
@@ -26,7 +21,8 @@ public class NextGreaterFromSameDigits {
 
   public static void nextPermutation(int[] nums) {
     int k = nums.length - 2;
-    while (k >= 0 && nums[k] >= nums[k + 1]) k--;
+    while (k >= 0 && nums[k] >= nums[k + 1])
+      k--;
 
     if (k == -1) {
       Arrays.sort(nums);
