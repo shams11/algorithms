@@ -8,16 +8,16 @@ import java.util.Arrays;
 
 public class MeetingRoomsI {
   public static void main(String[] args) {
-//    int[][] a = {
-//        {0, 30},
-//        {5, 10},
-//        {15, 20}
-//    };
+    // int[][] a = {
+    // {0, 30},
+    // {5, 10},
+    // {15, 20}
+    // };
     // Output : false
 
     int[][] a = {
-        {7, 10},
-        {2,4}
+        { 7, 10 },
+        { 2, 4 }
     };
     // Output : true
     // Can a person attend all the meetings
@@ -36,7 +36,9 @@ public class MeetingRoomsI {
     Arrays.sort(start);
     Arrays.sort(end);
     int i = 1, j = 0;
-    while(i < start.length && j < end.length) {
+    // start => {0, 5, 15} end => {10, 20, 30} ans false
+    // start => {2, 7} end => {4,10} ans true
+    while (i < start.length && j < end.length) {
       if (start[i] < end[j]) {
         return false;
       }
