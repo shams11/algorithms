@@ -30,6 +30,7 @@ public class InsertIntervals {
         result.add(newInterval);
         newInterval = interval; // start over again from this interval
       } else if (interval[1] < newInterval[0]) {
+        // ex : in {1, 2}, 2 is less than 4 in {4, 6}
         result.add(interval);
       } else {
         // Overlapping
